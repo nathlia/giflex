@@ -7,6 +7,21 @@ public class Substat {
   private String Name;
 
 
+  public Substat() {
+  }
+
+  public Substat(long substatId) {
+    SubstatId = substatId;
+  }
+  public Substat( String name) {
+    Name = name;
+  }
+
+  public Substat(long substatId, String name) {
+    SubstatId = substatId;
+    Name = name;
+  }
+
   public long getSubstatId() {
     return SubstatId;
   }
