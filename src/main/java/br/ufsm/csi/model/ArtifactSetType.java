@@ -7,6 +7,24 @@ public class ArtifactSetType {
   private String Name;
   private String Description;
 
+  public ArtifactSetType() {
+
+  }
+
+  public ArtifactSetType(long artifactSetTypeId) {
+    ArtifactSetTypeId = artifactSetTypeId;
+  }
+
+  public ArtifactSetType(String name, String description) {
+    Name = name;
+    Description = description;
+  }
+
+  public ArtifactSetType(long artifactSetTypeId, String name, String description) {
+    ArtifactSetTypeId = artifactSetTypeId;
+    Name = name;
+    Description = description;
+  }
 
   public long getArtifactSetTypeId() {
     return ArtifactSetTypeId;
