@@ -1,46 +1,41 @@
 package br.ufsm.csi.util;
 
-import br.ufsm.csi.dao.CharacterDAO;
-import br.ufsm.csi.model.Character;
+import br.ufsm.csi.dao.ArtifactTypeDAO;
+import br.ufsm.csi.model.ArtifactType;
 
 public class TestArtifactType {
     public static void main(String args[]){
-        //testGetArtifactType();
         //testInsert();
+        //testGetArtifactType();
         //testUpdate();
-        testDelete();
+        //testDelete();
     }
 
-    public static void testGetCharacter() {
+    public static void testGetArtifactType() {
         System.out.println("!!!Get Artifact Type:!!!");
-        for(Character c : new CharacterDAO().getCharacter()) {
-            System.out.println("Id:" + c.getCharacterId());
-            System.out.println("Name:" + c.getName());
-            System.out.println("Level:" + c.getLevel());
-            System.out.println("Crit Rate:" + c.getCritRate());
-            System.out.println("Crit DMG:" + c.getCritDmg());
+        for(ArtifactType artType : new ArtifactTypeDAO().getArtifactType()) {
+            System.out.println("Id:" + artType.getArtifactTypeId());
+            System.out.println("Name:" + artType.getName());
             System.out.println("`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`" );
         }
     }
 
     public static void testInsert() {
-        Character chara = new Character("Zongli", "80", "36.2%", "109.1%");
+        ArtifactType artType = new ArtifactType("erase");
 
-        new CharacterDAO().insert(chara);
+        new ArtifactTypeDAO().insert(artType);
     }
 
     public static void testUpdate() {
         //update user from id
-        Character charaUp = new Character(1,"Erase", "20", "20.5%", "40.8%");
-        new CharacterDAO().update(charaUp);
-
+        ArtifactType artTypeUp = new ArtifactType(1,"Flower");
+        new ArtifactTypeDAO().update(artTypeUp);
     }
 
     public static void testDelete() {
         //delete from id
+        ArtifactType artTypeDel = new ArtifactType(2);
 
-        Character charaDel = new Character(1);
-
-        new CharacterDAO().delete(charaDel);
+        new ArtifactTypeDAO().delete(artTypeDel);
     }
 }

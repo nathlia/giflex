@@ -1,66 +1,59 @@
 package br.ufsm.csi.dao;
 
 import br.ufsm.csi.model.ArtifactType;
-import br.ufsm.csi.model.Character;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-public class ArtifactDAO {
+public class ArtifactTypeDAO {
     private String sql;
     private Statement statement;
     private ResultSet resultSet;
     private PreparedStatement preparedStatement;
     private String status;
 
-    public ArrayList<Character> getCharacter(){
+    public ArrayList<ArtifactType> getArtifactType(){
 
-        ArrayList<Character> characters = new ArrayList<Character>();
+        ArrayList<ArtifactType> artTypes = new ArrayList<ArtifactType>();
 
         try(Connection connection = new ConectDB().getConexao()){
-            this.sql = "SELECT * FROM character";
+            this.sql = "SELECT * FROM artifacttype";
             this.statement = connection.createStatement();
             this.resultSet = this.statement.executeQuery(sql);
 
             while (this.resultSet.next()) {
-                Character chara = new Character();
-                chara.setCharacterId(this.resultSet.getLong("characterid"));
-                chara.setName(this.resultSet.getString("name"));
-                chara.setLevel(this.resultSet.getString("level"));
-                chara.setCritRate(this.resultSet.getString("critrate"));
-                chara.setCritDmg(this.resultSet.getString("critdmg"));
+                ArtifactType artType = new ArtifactType();
+                artType.setArtifactTypeId(this.resultSet.getLong("artifacttypeid"));
+                artType.setName(this.resultSet.getString("name"));
 
-                characters.add(chara);
+                artTypes.add(artType);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return characters;
+        return artTypes;
     }
 
-    public String insert(Character chara) {
+    public String insert(ArtifactType artType) {
         try(Connection connection = new ConectDB().getConexao()) {
 
             //BEGIN
             connection.setAutoCommit(false);
 
-            this.sql = "INSERT INTO character (name, level, critrate, critdmg) " +
-                    " VALUES (?, ?, ?, ?)";
+            this.sql = "INSERT INTO artifacttype (name) " +
+                    " VALUES (?)";
 
             this.preparedStatement = connection.prepareStatement(this.sql, PreparedStatement.RETURN_GENERATED_KEYS);
-            this.preparedStatement.setString(1, chara.getName());
-            this.preparedStatement.setString(2, chara.getLevel());
-            this.preparedStatement.setString(3, chara.getCritRate());
-            this.preparedStatement.setString(4, chara.getCritDmg());
+            this.preparedStatement.setString(1, artType.getName());
 
             this.preparedStatement.execute();
             this.resultSet = this.preparedStatement.getGeneratedKeys();
             this.resultSet.next();
 
             if (this.resultSet.getInt(1) > 0) {
-                chara.setCharacterId(this.resultSet.getInt(1));
+                artType.setArtifactTypeId(this.resultSet.getInt(1));
                 connection.commit();
                 System.out.println("Adicionado com sucesso!");
                 this.status = "OK";
@@ -74,22 +67,19 @@ public class ArtifactDAO {
         return this.status;
     }
 
-    public String update(Character chara) {
+    public String update(ArtifactType artType) {
         try(Connection connection = new ConectDB().getConexao()) {
 
             //BEGIN
             connection.setAutoCommit(false);
 
             //update from id
-            this.sql = "UPDATE character SET name = ?, level = ?, critrate = ?, critdmg = ? " +
-                    " WHERE characterid = ?";
+            this.sql = "UPDATE artifacttype SET name = ? " +
+                    " WHERE artifacttypeid = ?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
-            this.preparedStatement.setString(1, chara.getName());
-            this.preparedStatement.setString(2, chara.getLevel());
-            this.preparedStatement.setString(3, chara.getCritRate());
-            this.preparedStatement.setString(4, chara.getCritDmg());
-            this.preparedStatement.setLong(5, chara.getCharacterId());
+            this.preparedStatement.setString(1, artType.getName());
+            this.preparedStatement.setLong(2, artType.getArtifactTypeId());
 
             int ok = this.preparedStatement.executeUpdate();
             if (ok > 0) {
@@ -108,19 +98,18 @@ public class ArtifactDAO {
         return this.status;
     }
 
-    public String delete(Character chara ) {
+    public String delete(ArtifactType artType ) {
         try(Connection connection = new ConectDB().getConexao()) {
 
             //BEGIN
             connection.setAutoCommit(false);
 
             //delete from id
-
-            this.sql = "delete from character " +
-                    " where characterid = ?";
+            this.sql = "delete from artifacttype " +
+                    " where artifacttypeid = ?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
-            this.preparedStatement.setLong(1, chara.getCharacterId());
+            this.preparedStatement.setLong(1, artType.getArtifactTypeId());
 
             int ok2 = this.preparedStatement.executeUpdate();
 
