@@ -5,11 +5,12 @@ public class Artifact {
   private long ArtifactId;
   //private long ArtifactTypeId;
   //private long ArtifactSetTypeId;
-  private long MainStatId;
+  //private long MainStatId;
   private double MainStatValue;
 
   private ArtifactType artifactType;
   private ArtifactSetType artifactSetType;
+  private Substat MainStatId;
 
   public Artifact() {
 
@@ -19,16 +20,14 @@ public class Artifact {
     ArtifactId = artifactId;
   }
 
-  public Artifact(long artifactId, long mainStatId, double mainStatValue, ArtifactType artifactType, ArtifactSetType artifactSetType) {
+  public Artifact(long artifactId, double mainStatValue, ArtifactType artifactType, ArtifactSetType artifactSetType) {
     ArtifactId = artifactId;
-    MainStatId = mainStatId;
     MainStatValue = mainStatValue;
     this.artifactType = artifactType;
     this.artifactSetType = artifactSetType;
   }
 
-  public Artifact(long mainStatId, double mainStatValue, ArtifactType artifactType, ArtifactSetType artifactSetType) {
-    MainStatId = mainStatId;
+  public Artifact( double mainStatValue, ArtifactType artifactType, ArtifactSetType artifactSetType) {
     MainStatValue = mainStatValue;
     this.artifactType = artifactType;
     this.artifactSetType = artifactSetType;
@@ -58,15 +57,13 @@ public class Artifact {
     this.ArtifactId = artifactId;
   }
 
-  public long getMainStatId() {
+  public Substat getMainStatId() {
     return MainStatId;
   }
 
-  public void setMainStatId(long mainStatId) {
-    this.MainStatId = mainStatId;
+  public void setMainStatId(Substat mainStatId) {
+    MainStatId = mainStatId;
   }
-
-
   public double getMainStatValue() {
     return MainStatValue;
   }
