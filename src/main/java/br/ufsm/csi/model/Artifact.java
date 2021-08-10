@@ -2,74 +2,118 @@ package br.ufsm.csi.model;
 
 public class Artifact {
 
-  private long ArtifactId;
-  //private long ArtifactTypeId;
-  //private long ArtifactSetTypeId;
-  //private long MainStatId;
+  private int ArtifactId;
+  private int ArtifactTypeId;
+  private int ArtifactSetTypeId;
+  private int MainStatId;
   private double MainStatValue;
 
-  private ArtifactType artifactType;
-  private ArtifactSetType artifactSetType;
-  private Substat MainStatId;
+  //private ArtifactType artifactType;
+  //private ArtifactSetType artifactSetType;
+  // Substat MainStatId;
 
   public Artifact() {
 
   }
 
-  public Artifact(long artifactId) {
+  public Artifact(int artifactId) {
     ArtifactId = artifactId;
   }
 
-  public Artifact(long artifactId, double mainStatValue, ArtifactType artifactType, ArtifactSetType artifactSetType) {
+  public Artifact(int artifactId, int artifactTypeId, int artifactSetTypeId, int mainStatId, double mainStatValue) {
     ArtifactId = artifactId;
+    ArtifactTypeId = artifactTypeId;
+    ArtifactSetTypeId = artifactSetTypeId;
+    MainStatId = mainStatId;
     MainStatValue = mainStatValue;
-    this.artifactType = artifactType;
-    this.artifactSetType = artifactSetType;
   }
 
-  public Artifact( double mainStatValue, ArtifactType artifactType, ArtifactSetType artifactSetType) {
+  public Artifact(int artifactTypeId, int artifactSetTypeId, int mainStatId, double mainStatValue) {
+    ArtifactTypeId = artifactTypeId;
+    ArtifactSetTypeId = artifactSetTypeId;
+    MainStatId = mainStatId;
     MainStatValue = mainStatValue;
-    this.artifactType = artifactType;
-    this.artifactSetType = artifactSetType;
   }
 
-  public ArtifactType getArtifactType() {
-    return artifactType;
-  }
-
-  public void setArtifactType(ArtifactType artifactType) {
-    this.artifactType = artifactType;
-  }
-
-  public ArtifactSetType getArtifactSetType() {
-    return artifactSetType;
-  }
-
-  public void setArtifactSetType(ArtifactSetType artifactSetType) {
-    this.artifactSetType = artifactSetType;
-  }
-
-  public long getArtifactId() {
+  public int getArtifactId() {
     return ArtifactId;
   }
 
-  public void setArtifactId(long artifactId) {
-    this.ArtifactId = artifactId;
+  public void setArtifactId(int artifactId) {
+    ArtifactId = artifactId;
   }
 
-  public Substat getMainStatId() {
+  public int getArtifactTypeId() {
+    return ArtifactTypeId;
+  }
+
+  public void setArtifactTypeId(int artifactTypeId) {
+    ArtifactTypeId = artifactTypeId;
+  }
+
+  public int getArtifactSetTypeId() {
+    return ArtifactSetTypeId;
+  }
+
+  public void setArtifactSetTypeId(int artifactSetTypeId) {
+    ArtifactSetTypeId = artifactSetTypeId;
+  }
+
+  public int getMainStatId() {
     return MainStatId;
   }
 
-  public void setMainStatId(Substat mainStatId) {
+  public void setMainStatId(int mainStatId) {
     MainStatId = mainStatId;
   }
+
   public double getMainStatValue() {
     return MainStatValue;
   }
 
   public void setMainStatValue(double mainStatValue) {
-    this.MainStatValue = mainStatValue;
+    MainStatValue = mainStatValue;
   }
+
+  //  public ArtifactType getArtifactType() {
+//    return artifactType;
+//  }
+//
+//  public void setArtifactType(ArtifactType artifactType) {
+//    this.artifactType = artifactType;
+//  }
+
+//  public ArtifactSetType getArtifactSetType() {
+//    return artifactSetType;
+//  }
+//
+//  public void setArtifactSetType(ArtifactSetType artifactSetType) {
+//    this.artifactSetType = artifactSetType;
+//  }
+//
+//  public int getArtifactId() {
+//    return ArtifactId;
+//  }
+//
+//  public void setArtifactId(int artifactId) {
+//    this.ArtifactId = artifactId;
+//  }
+
+//  public Substat getMainStatId() {
+//    return MainStatId;
+//  }
+//
+//  public void setMainStatId(Substat mainStatId) {
+//    MainStatId = mainStatId;
+//  }
+//  public double getMainStatValue() {
+//    return MainStatValue;
+//  }
+//
+//  public void setMainStatValue(double mainStatValue) {
+//    this.MainStatValue = mainStatValue;
+//  }
+
+
 
 }

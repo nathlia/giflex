@@ -23,11 +23,18 @@ public class ArtifactDAO {
             while (this.resultSet.next()) {
                 Artifact artifact = new Artifact();
                 artifact.setArtifactId(this.resultSet.getInt("artifactid"));
-                artifact.getArtifactType().setArtifactTypeId(this.resultSet.getInt("artifacttypeid"));
-                artifact.getArtifactSetType().setArtifactSetTypeId(this.resultSet.getInt("artifactsettypeid"));
-                artifact.getMainStatId().setSubstatId(this.resultSet.getInt("mainstatid"));
+                artifact.setArtifactTypeId(this.resultSet.getInt("artifacttypeid"));
+                artifact.setArtifactSetTypeId(this.resultSet.getInt("artifactsettypeid"));
+                artifact.setMainStatValue(this.resultSet.getInt("mainstatid"));
                 artifact.setMainStatValue(this.resultSet.getDouble("mainstatvalue"));
+
+                artifacts.add(artifact);
             }
+
+            //fazer for loop e setar cada objeto da foreign key
+            //for a in artifacts
+            //  a.artifactType = artifactTypeDAO.getartifactType(a.artifactTypeid);
+
         } catch (SQLException e) {
             e.printStackTrace();
             this.status = "ERROR";
