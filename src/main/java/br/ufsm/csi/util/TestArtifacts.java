@@ -3,12 +3,12 @@ package br.ufsm.csi.util;
 import br.ufsm.csi.dao.ArtifactDAO;
 import br.ufsm.csi.model.Artifact;
 
-public class TestArtifact {
+public class TestArtifacts {
 
     public static void main(String args[]){
-        testGetArtifact();
+        //testGetArtifact();
         //testInsert();
-        //testUpdate();
+        testUpdate();
         //testDelete();
     }
 
@@ -26,5 +26,15 @@ public class TestArtifact {
             System.out.println("Main Stat Value:" + a.getMainStatValue());
             System.out.println("`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`" );
         }
+    }
+
+    public static void testInsert() {
+        Artifact artifact = new Artifact( 2, 1, 2, 3,4780);
+
+        new ArtifactDAO().insert(artifact);
+    }
+
+    public static void testUpdate() {
+        
     }
 }

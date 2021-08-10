@@ -35,6 +35,8 @@ public class Artifact {
     MainStatValue = mainStatValue;
   }
 
+
+
   public int getArtifactId() {
     return ArtifactId;
   }

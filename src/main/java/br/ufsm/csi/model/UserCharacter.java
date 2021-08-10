@@ -2,9 +2,9 @@ package br.ufsm.csi.model;
 
 public class UserCharacter {
 
-  private long UserCharacterId;
-  private long UserId;
-  private long CharacterId;
+  private int UserCharacterId;
+  private int UserId;
+  private int CharacterId;
 
   private Player player;
   private Character character;
@@ -13,18 +13,18 @@ public class UserCharacter {
 
   }
 
-  public UserCharacter(long userCharacterId) {
+  public UserCharacter(int userCharacterId) {
     UserCharacterId = userCharacterId;
   }
 
-  public UserCharacter(long userId, long characterId, Player player, Character character) {
+  public UserCharacter(int userId, int characterId, Player player, Character character) {
     UserId = userId;
     CharacterId = characterId;
     this.player = player;
     this.character = character;
   }
 
-  public UserCharacter(long userCharacterId, long userId, long characterId, Player player, Character character) {
+  public UserCharacter(int userCharacterId, int userId, int characterId, Player player, Character character) {
     UserCharacterId = userCharacterId;
     UserId = userId;
     CharacterId = characterId;
@@ -32,29 +32,29 @@ public class UserCharacter {
     this.character = character;
   }
 
-  public long getUserCharacterId() {
+  public int getUserCharacterId() {
     return UserCharacterId;
   }
 
-  public void setUserCharacterId(long userCharacterId) {
+  public void setUserCharacterId(int userCharacterId) {
     this.UserCharacterId = userCharacterId;
   }
 
 
-  public long getUserId() {
+  public int getUserId() {
     return UserId;
   }
 
-  public void setUserId(long userId) {
+  public void setUserId(int userId) {
     this.UserId = userId;
   }
 
 
-  public long getCharacterId() {
+  public int getCharacterId() {
     return CharacterId;
   }
 
-  public void setCharacterId(long characterId) {
+  public void setCharacterId(int characterId) {
     this.CharacterId = characterId;
   }
 

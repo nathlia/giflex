@@ -3,30 +3,30 @@ package br.ufsm.csi.model;
 
 public class Substat {
 
-  private long SubstatId;
+  private int SubstatId;
   private String Name;
 
 
   public Substat() {
   }
 
-  public Substat(long substatId) {
+  public Substat(int substatId) {
     SubstatId = substatId;
   }
   public Substat( String name) {
     Name = name;
   }
 
-  public Substat(long substatId, String name) {
+  public Substat(int substatId, String name) {
     SubstatId = substatId;
     Name = name;
   }
 
-  public long getSubstatId() {
+  public int getSubstatId() {
     return SubstatId;
   }
 
-  public void setSubstatId(long substatId) {
+  public void setSubstatId(int substatId) {
     this.SubstatId = substatId;
   }
 

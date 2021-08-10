@@ -23,7 +23,7 @@ public class ArtifactTypeDAO {
 
             while (this.resultSet.next()) {
                 ArtifactType artType = new ArtifactType();
-                artType.setArtifactTypeId(this.resultSet.getLong("artifacttypeid"));
+                artType.setArtifactTypeId(this.resultSet.getInt("artifacttypeid"));
                 artType.setName(this.resultSet.getString("name"));
 
                 artTypes.add(artType);
@@ -48,7 +48,7 @@ public class ArtifactTypeDAO {
             while (this.resultSet.next()) {
                 if (this.resultSet.getInt("artifacttypeid") == id) {
                     ArtifactType artType = new ArtifactType();
-                    artType.setArtifactTypeId(this.resultSet.getLong("artifacttypeid"));
+                    artType.setArtifactTypeId(this.resultSet.getInt("artifacttypeid"));
                     artType.setName(this.resultSet.getString("name"));
 
                     ArtTypeFound = artType;
@@ -105,7 +105,7 @@ public class ArtifactTypeDAO {
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setString(1, artType.getName());
-            this.preparedStatement.setLong(2, artType.getArtifactTypeId());
+            this.preparedStatement.setInt(2, artType.getArtifactTypeId());
 
             int ok = this.preparedStatement.executeUpdate();
             if (ok > 0) {
@@ -135,7 +135,7 @@ public class ArtifactTypeDAO {
                     " where artifacttypeid = ?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
-            this.preparedStatement.setLong(1, artType.getArtifactTypeId());
+            this.preparedStatement.setInt(1, artType.getArtifactTypeId());
 
             int ok2 = this.preparedStatement.executeUpdate();
 

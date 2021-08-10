@@ -23,7 +23,7 @@ public class CharacterDAO {
 
             while (this.resultSet.next()) {
                 Character chara = new Character();
-                chara.setCharacterId(this.resultSet.getLong("characterid"));
+                chara.setCharacterId(this.resultSet.getInt("characterid"));
                 chara.setName(this.resultSet.getString("name"));
                 chara.setLevel(this.resultSet.getString("level"));
                 chara.setCritRate(this.resultSet.getString("critrate"));
@@ -88,7 +88,7 @@ public class CharacterDAO {
             this.preparedStatement.setString(2, chara.getLevel());
             this.preparedStatement.setString(3, chara.getCritRate());
             this.preparedStatement.setString(4, chara.getCritDmg());
-            this.preparedStatement.setLong(5, chara.getCharacterId());
+            this.preparedStatement.setInt(5, chara.getCharacterId());
 
             int ok = this.preparedStatement.executeUpdate();
             if (ok > 0) {
@@ -119,7 +119,7 @@ public class CharacterDAO {
                     " where characterid = ?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
-            this.preparedStatement.setLong(1, chara.getCharacterId());
+            this.preparedStatement.setInt(1, chara.getCharacterId());
 
             int ok2 = this.preparedStatement.executeUpdate();
 

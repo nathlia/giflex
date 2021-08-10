@@ -3,9 +3,9 @@ package br.ufsm.csi.model;
 
 public class CharacterArtifact {
 
-  private long CharacterArtifactId;
-  private long CharacterId;
-  private long ArtifactId;
+  private int CharacterArtifactId;
+  private int CharacterId;
+  private int ArtifactId;
 
   private Character character;
   private Artifact artifact;
@@ -14,18 +14,18 @@ public class CharacterArtifact {
 
   }
 
-  public CharacterArtifact(long characterArtifactId) {
+  public CharacterArtifact(int characterArtifactId) {
     CharacterArtifactId = characterArtifactId;
   }
 
-  public CharacterArtifact(long characterId, long artifactId, Character character, Artifact artifact) {
+  public CharacterArtifact(int characterId, int artifactId, Character character, Artifact artifact) {
     CharacterId = characterId;
     ArtifactId = artifactId;
     this.character = character;
     this.artifact = artifact;
   }
 
-  public CharacterArtifact(long characterArtifactId, long characterId, long artifactId, Character character, Artifact artifact) {
+  public CharacterArtifact(int characterArtifactId, int characterId, int artifactId, Character character, Artifact artifact) {
     CharacterArtifactId = characterArtifactId;
     CharacterId = characterId;
     ArtifactId = artifactId;
@@ -33,29 +33,29 @@ public class CharacterArtifact {
     this.artifact = artifact;
   }
 
-  public long getCharacterArtifactId() {
+  public int getCharacterArtifactId() {
     return CharacterArtifactId;
   }
 
-  public void setCharacterArtifactId(long characterArtifactId) {
+  public void setCharacterArtifactId(int characterArtifactId) {
     this.CharacterArtifactId = characterArtifactId;
   }
 
 
-  public long getCharacterId() {
+  public int getCharacterId() {
     return CharacterId;
   }
 
-  public void setCharacterId(long characterId) {
+  public void setCharacterId(int characterId) {
     this.CharacterId = characterId;
   }
 
 
-  public long getArtifactId() {
+  public int getArtifactId() {
     return ArtifactId;
   }
 
-  public void setArtifactId(long artifactId) {
+  public void setArtifactId(int artifactId) {
     this.ArtifactId = artifactId;
   }
 

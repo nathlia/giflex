@@ -3,13 +3,13 @@ package br.ufsm.csi.model;
 
 public class ArtifactType {
 
-  private long ArtifactTypeId;
+  private int ArtifactTypeId;
   private String Name;
 
   public ArtifactType() {
   }
 
-  public ArtifactType(long artifactTypeId) {
+  public ArtifactType(int artifactTypeId) {
     ArtifactTypeId = artifactTypeId;
   }
 
@@ -17,16 +17,16 @@ public class ArtifactType {
     Name = name;
   }
 
-  public ArtifactType(long artifactTypeId, String name) {
+  public ArtifactType(int artifactTypeId, String name) {
     ArtifactTypeId = artifactTypeId;
     Name = name;
   }
 
-  public long getArtifactTypeId() {
+  public int getArtifactTypeId() {
     return ArtifactTypeId;
   }
 
-  public void setArtifactTypeId(long artifactTypeId) {
+  public void setArtifactTypeId(int artifactTypeId) {
     this.ArtifactTypeId = artifactTypeId;
   }
 

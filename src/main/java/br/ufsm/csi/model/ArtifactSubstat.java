@@ -3,9 +3,9 @@ package br.ufsm.csi.model;
 
 public class ArtifactSubstat {
 
-  private long ArtifactSubstatId;
-  private long ArtifactId;
-  private long SubstatId;
+  private int ArtifactSubstatId;
+  private int ArtifactId;
+  private int SubstatId;
   private double SubstatValue;
 
   private Artifact artifact;
@@ -16,11 +16,11 @@ public class ArtifactSubstat {
   }
 
 
-  public ArtifactSubstat(long artifactSubstatId) {
+  public ArtifactSubstat(int artifactSubstatId) {
     ArtifactSubstatId = artifactSubstatId;
   }
 
-  public ArtifactSubstat(long artifactId, long substatId, double substatValue, Artifact artifact, Substat substat) {
+  public ArtifactSubstat(int artifactId, int substatId, double substatValue, Artifact artifact, Substat substat) {
     ArtifactId = artifactId;
     SubstatId = substatId;
     SubstatValue = substatValue;
@@ -28,7 +28,7 @@ public class ArtifactSubstat {
     this.substat = substat;
   }
 
-  public ArtifactSubstat(long artifactSubstatId, long artifactId, long substatId, double substatValue, Artifact artifact, Substat substat) {
+  public ArtifactSubstat(int artifactSubstatId, int artifactId, int substatId, double substatValue, Artifact artifact, Substat substat) {
     ArtifactSubstatId = artifactSubstatId;
     ArtifactId = artifactId;
     SubstatId = substatId;
@@ -37,29 +37,29 @@ public class ArtifactSubstat {
     this.substat = substat;
   }
 
-  public long getArtifactSubstatId() {
+  public int getArtifactSubstatId() {
     return ArtifactSubstatId;
   }
 
-  public void setArtifactSubstatId(long artifactSubstatId) {
+  public void setArtifactSubstatId(int artifactSubstatId) {
     this.ArtifactSubstatId = artifactSubstatId;
   }
 
 
-  public long getArtifactId() {
+  public int getArtifactId() {
     return ArtifactId;
   }
 
-  public void setArtifactId(long artifactId) {
+  public void setArtifactId(int artifactId) {
     this.ArtifactId = artifactId;
   }
 
 
-  public long getSubstatId() {
+  public int getSubstatId() {
     return SubstatId;
   }
 
-  public void setSubstatId(long substatId) {
+  public void setSubstatId(int substatId) {
     this.SubstatId = substatId;
   }
 

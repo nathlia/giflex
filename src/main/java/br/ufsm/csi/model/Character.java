@@ -2,7 +2,7 @@ package br.ufsm.csi.model;
 
 public class Character {
 
-  private long CharacterId;
+  private int CharacterId;
   private String Name;
   private String Level;
   private String CritRate;
@@ -12,7 +12,7 @@ public class Character {
 
   }
 
-  public Character(long CharacterId) {
+  public Character(int CharacterId) {
     this.CharacterId = CharacterId;
   }
 
@@ -23,7 +23,7 @@ public class Character {
     CritDmg = critDmg;
   }
 
-  public Character(long characterId, String name, String level, String critRate, String critDmg) {
+  public Character(int characterId, String name, String level, String critRate, String critDmg) {
     CharacterId = characterId;
     Name = name;
     Level = level;
@@ -31,11 +31,11 @@ public class Character {
     CritDmg = critDmg;
   }
 
-  public long getCharacterId() {
+  public int getCharacterId() {
     return CharacterId;
   }
 
-  public void setCharacterId(long characterId) {
+  public void setCharacterId(int characterId) {
     this.CharacterId = characterId;
   }
 

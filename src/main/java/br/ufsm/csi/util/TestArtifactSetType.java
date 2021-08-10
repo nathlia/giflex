@@ -5,7 +5,7 @@ import br.ufsm.csi.dao.ArtifactSetTypeDAO;
 
 public class TestArtifactSetType {
     public static void main(String args[]){
-        //testInsert();
+        testInsert();
         //testGetArtifactSetType();
         //testUpdate();
         //testDelete();
@@ -22,7 +22,7 @@ public class TestArtifactSetType {
     }
 
     public static void testInsert() {
-        ArtifactSetType artSetType = new ArtifactSetType("test", "test");
+        ArtifactSetType artSetType = new ArtifactSetType("Virisdescent Venerer", "2-Piece Bonus Anemo DMG Bonus +15% <br> 4-Piece Bonus Increases Swirl DMG by 60%. Decreases opponent's Elemental RES to the element infused in the Swirl by 40% for 10s.");
 
         new ArtifactSetTypeDAO().insert(artSetType);
     }

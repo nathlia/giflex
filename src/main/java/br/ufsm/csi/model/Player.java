@@ -3,7 +3,7 @@ package br.ufsm.csi.model;
 
 public class Player {
 
-  private long UserId;
+  private int UserId;
   private String Name;
   private String Username;
   private String Password;
@@ -12,7 +12,7 @@ public class Player {
 
   }
 
-  public Player(long userId) {
+  public Player(int userId) {
     this.UserId= userId;
   }
 
@@ -22,18 +22,18 @@ public class Player {
     this.Password = Password;
   }
 
-  public Player(long UserId, String Name, String Username, String Password) {
+  public Player(int UserId, String Name, String Username, String Password) {
     this.UserId = UserId;
     this.Name = Name;
     this.Username = Username;
     this.Password = Password;
   }
 
-  public long getUserId() {
+  public int getUserId() {
     return UserId;
   }
 
-  public void setUserId(long userId) {
+  public void setUserId(int userId) {
     this.UserId = userId;
   }
 

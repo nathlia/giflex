@@ -83,7 +83,7 @@ public class PlayerDAO {
             this.preparedStatement.setString(1, user.getName());
             this.preparedStatement.setString(2, user.getUsername());
             this.preparedStatement.setString(3, user.getPassword());
-            this.preparedStatement.setLong(4, user.getUserId());
+            this.preparedStatement.setInt(4, user.getUserId());
 
             int ok = this.preparedStatement.executeUpdate();
             if (ok > 0) {
@@ -114,7 +114,7 @@ public class PlayerDAO {
                     " where userid = ?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
-            this.preparedStatement.setLong(1, user.getUserId());
+            this.preparedStatement.setInt(1, user.getUserId());
 
             int ok2 = this.preparedStatement.executeUpdate();
 
