@@ -117,5 +117,38 @@ public class ArtifactDAO {
         return this.status;
     }
 
+    public String update(Artifact artifact) {
+        try (Connection connection = new ConectDB().getConexao()) {
+            connection.setAutoCommit(false);
+
+            //update from id
+            this.sql = "UPDATE artifact SET artifacttypeid=?, artifactsettypeid=?, mainstatid=?, mainstatvalue=?" +
+                    "WHERE artifactid = ?";
+
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setInt(1, artifact.getArtifactTypeId());
+            this.preparedStatement.setInt(2, artifact.getArtifactSetTypeId());
+            this.preparedStatement.setInt(3, artifact.getMainStatId());
+            this.preparedStatement.setDouble(4, artifact.getMainStatValue());
+            this.preparedStatement.setDouble(5, artifact.getArtifactId());
+
+
+            int ok = this.preparedStatement.executeUpdate();
+            if (ok > 0) {
+                connection.commit();
+                this.status = "OK";
+                System.out.println("* - Artifact updated with success - *");
+            } else {
+                this.status = "ERROR";
+                System.out.println("x - Error: Could not update Artifact - x");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return this.status;
+    }
+
 
 }

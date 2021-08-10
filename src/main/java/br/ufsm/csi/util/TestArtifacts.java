@@ -5,16 +5,16 @@ import br.ufsm.csi.model.Artifact;
 
 public class TestArtifacts {
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         //testGetArtifact();
         //testInsert();
-        testUpdate();
-        //testDelete();
+        //testUpdate();
+        testDelete();
     }
 
     public static void testGetArtifact() {
         System.out.println("!!!Get Artifacts:!!!");
-        for(Artifact a : new ArtifactDAO().getArtifact()) {
+        for (Artifact a : new ArtifactDAO().getArtifact()) {
             System.out.println("ID:" + a.getArtifactId());
             System.out.println("Type ID:" + a.getArtifactTypeId());
             System.out.println("-Name:" + a.getArtifactType().getName());
@@ -24,17 +24,30 @@ public class TestArtifacts {
             System.out.println("Main Stat ID:" + a.getMainStatId());
             System.out.println("-Name:" + a.getMainStat().getName());
             System.out.println("Main Stat Value:" + a.getMainStatValue());
-            System.out.println("`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`" );
+            System.out.println("`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`");
         }
     }
 
     public static void testInsert() {
-        Artifact artifact = new Artifact( 2, 1, 2, 3,4780);
+        Artifact artifact = new Artifact(1, 1, 2, 1233);
 
         new ArtifactDAO().insert(artifact);
     }
 
     public static void testUpdate() {
-        
+        Artifact artifactUpdate = new Artifact(3, 1, 2, 3, 4780);
+
+        new ArtifactDAO().update(artifactUpdate);
     }
+
+    public static void testDelete() {
+//        Character charaDel = new Character(1);
+//
+//        new CharacterDAO().delete(charaDel);
+
+        Artifact artifactDelete = new Artifact(4);
+
+        new ArtifactDAO().delete(artifactDelete);
+    }
+
 }
