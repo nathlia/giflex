@@ -8,8 +8,8 @@ public class TestArtifacts {
     public static void main(String args[]) {
         //testGetArtifact();
         //testInsert();
-        //testUpdate();
-        testDelete();
+        testUpdate();
+        //testDelete();
     }
 
     public static void testGetArtifact() {
@@ -35,18 +35,13 @@ public class TestArtifacts {
     }
 
     public static void testUpdate() {
-        Artifact artifactUpdate = new Artifact(3, 1, 2, 3, 4780);
+        Artifact artifactUpdate = new Artifact(2, 1, 2, 3, 4780);
 
         new ArtifactDAO().update(artifactUpdate);
     }
 
     public static void testDelete() {
-//        Character charaDel = new Character(1);
-//
-//        new CharacterDAO().delete(charaDel);
-
         Artifact artifactDelete = new Artifact(5);
-
         new ArtifactDAO().delete(artifactDelete);
     }
 

@@ -104,7 +104,7 @@ public class ArtifactDAO {
 
             if (this.resultSet.getInt(1) > 0) {
                 artifact.setArtifactId(this.resultSet.getInt(1));
-                connection.commit();
+                connection.commit(); 
                 System.out.println("* - Artifact added with success! - *");
                 this.status = "OK";
             }
@@ -136,8 +136,8 @@ public class ArtifactDAO {
             int ok = this.preparedStatement.executeUpdate();
             if (ok > 0) {
                 connection.commit();
-                this.status = "OK";
                 System.out.println("* - Artifact updated with success - *");
+                this.status = "OK";
             } else {
                 this.status = "ERROR";
                 System.out.println("x - Error: Could not update Artifact - x");
