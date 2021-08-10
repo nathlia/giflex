@@ -1,6 +1,5 @@
 package br.ufsm.csi.model;
 
-
 public class CharacterArtifact {
 
   private int CharacterArtifactId;
@@ -18,19 +17,15 @@ public class CharacterArtifact {
     CharacterArtifactId = characterArtifactId;
   }
 
-  public CharacterArtifact(int characterId, int artifactId, Character character, Artifact artifact) {
+  public CharacterArtifact(int characterId, int artifactId) {
     CharacterId = characterId;
     ArtifactId = artifactId;
-    this.character = character;
-    this.artifact = artifact;
   }
 
-  public CharacterArtifact(int characterArtifactId, int characterId, int artifactId, Character character, Artifact artifact) {
+  public CharacterArtifact(int characterArtifactId, int characterId, int artifactId) {
     CharacterArtifactId = characterArtifactId;
     CharacterId = characterId;
     ArtifactId = artifactId;
-    this.character = character;
-    this.artifact = artifact;
   }
 
   public int getCharacterArtifactId() {
@@ -59,4 +54,19 @@ public class CharacterArtifact {
     this.ArtifactId = artifactId;
   }
 
+  public Character getCharacter() {
+    return character;
+  }
+
+  public void setCharacter(Character character) {
+    this.character = character;
+  }
+
+  public Artifact getArtifact() {
+    return artifact;
+  }
+
+  public void setArtifact(Artifact artifact) {
+    this.artifact = artifact;
+  }
 }

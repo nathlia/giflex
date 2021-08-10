@@ -154,20 +154,38 @@ public class ArtifactDAO {
         try (Connection connection = new ConectDB().getConexao()) {
             connection.setAutoCommit(false);
 
-            this.sql = "DELETE FROM artifact " +
-                    " WHERE artifactid = ?";
+            this.sql = "DELETE FROM characterartifact " +
+                    "WHERE  characterartifact.artifactid = ?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setInt(1, artifact.getArtifactId());
 
-            int ok = this.preparedStatement.executeUpdate();
-            if (ok > 0) {
+            int deletedFromCharacter = this.preparedStatement.executeUpdate();
+            if (deletedFromCharacter > 0) {
                 connection.commit();
                 this.status = "OK";
-                System.out.println("* - Artifact was deleted with success - *");
+                System.out.println("* - Artifact was removed from Character - *");
             } else {
+                System.out.println(" x - Artifact could not be removed from Character - x");
                 this.status = "ERROR";
-                System.out.println("x - Error: Could not delete Artifact - x");
+            }
+
+            if (this.status.equals("OK")) {
+                this.sql = "DELETE FROM artifact " +
+                        " WHERE artifactid = ?";
+
+                this.preparedStatement = connection.prepareStatement(this.sql);
+                this.preparedStatement.setInt(1, artifact.getArtifactId());
+
+                int deletedArtifact = this.preparedStatement.executeUpdate();
+                if (deletedArtifact > 0) {
+                    connection.commit();
+                    this.status = "OK";
+                    System.out.println("* - Artifact was deleted with success - *");
+                } else {
+                    this.status = "ERROR";
+                    System.out.println("x - Error: Could not delete Artifact - x");
+                }
             }
 
         } catch (SQLException e) {

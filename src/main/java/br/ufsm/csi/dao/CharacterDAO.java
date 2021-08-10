@@ -39,6 +39,33 @@ public class CharacterDAO {
         return characters;
     }
 
+    public Character getCharacterById(int id){
+
+        Character characterFound = new Character();
+
+        try(Connection connection = new ConectDB().getConexao()){
+            this.sql = "SELECT * FROM character";
+            this.statement = connection.createStatement();
+            this.resultSet = this.statement.executeQuery(sql);
+
+            while (this.resultSet.next()) {
+                Character chara = new Character();
+                chara.setCharacterId(this.resultSet.getInt("characterid"));
+                chara.setName(this.resultSet.getString("name"));
+                chara.setLevel(this.resultSet.getString("level"));
+                chara.setCritRate(this.resultSet.getString("critrate"));
+                chara.setCritDmg(this.resultSet.getString("critdmg"));
+
+                characterFound = chara;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return characterFound;
+    }
+
     public String insert(Character chara) {
         try(Connection connection = new ConectDB().getConexao()) {
 

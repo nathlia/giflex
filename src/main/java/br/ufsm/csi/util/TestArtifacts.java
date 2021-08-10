@@ -8,8 +8,8 @@ public class TestArtifacts {
     public static void main(String args[]) {
         //testGetArtifact();
         //testInsert();
-        testUpdate();
-        //testDelete();
+        //testUpdate();
+        testDelete();
     }
 
     public static void testGetArtifact() {
@@ -41,8 +41,7 @@ public class TestArtifacts {
     }
 
     public static void testDelete() {
-        Artifact artifactDelete = new Artifact(5);
+        Artifact artifactDelete = new Artifact(6);
         new ArtifactDAO().delete(artifactDelete);
     }
-
 }
