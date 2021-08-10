@@ -150,5 +150,30 @@ public class ArtifactDAO {
         return this.status;
     }
 
+    public String delete(Artifact artifact) {
+        try (Connection connection = new ConectDB().getConexao()) {
+            connection.setAutoCommit(false);
 
+            this.sql = "DELETE FROM artifact " +
+                    " WHERE artifactid = ?";
+
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setInt(1, artifact.getArtifactId());
+
+            int ok = this.preparedStatement.executeUpdate();
+            if (ok > 0) {
+                connection.commit();
+                this.status = "OK";
+                System.out.println("* - Artifact was deleted with success - *");
+            } else {
+                this.status = "ERROR";
+                System.out.println("x - Error: Could not delete Artifact - x");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return this.status;
+    }
 }
