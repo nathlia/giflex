@@ -6,6 +6,31 @@ public class UserCharacter {
   private long UserId;
   private long CharacterId;
 
+  private Player player;
+  private Character character;
+
+  public UserCharacter() {
+
+  }
+
+  public UserCharacter(long userCharacterId) {
+    UserCharacterId = userCharacterId;
+  }
+
+  public UserCharacter(long userId, long characterId, Player player, Character character) {
+    UserId = userId;
+    CharacterId = characterId;
+    this.player = player;
+    this.character = character;
+  }
+
+  public UserCharacter(long userCharacterId, long userId, long characterId, Player player, Character character) {
+    UserCharacterId = userCharacterId;
+    UserId = userId;
+    CharacterId = characterId;
+    this.player = player;
+    this.character = character;
+  }
 
   public long getUserCharacterId() {
     return UserCharacterId;
