@@ -12,7 +12,7 @@ public class ArtifactDAO {
     private PreparedStatement preparedStatement;
     private String status;
 
-    public ArrayList<Artifact>  getArtifact() {
+    public ArrayList<Artifact> getArtifact() {
         ArrayList<Artifact> artifacts = new ArrayList<>();
 
         try (Connection connection = new ConectDB().getConexao()) {
@@ -25,7 +25,7 @@ public class ArtifactDAO {
                 artifact.setArtifactId(this.resultSet.getInt("artifactid"));
                 artifact.setArtifactTypeId(this.resultSet.getInt("artifacttypeid"));
                 artifact.setArtifactSetTypeId(this.resultSet.getInt("artifactsettypeid"));
-                artifact.setMainStatValue(this.resultSet.getInt("mainstatid"));
+                artifact.setMainStatId(this.resultSet.getInt("mainstatid"));
                 artifact.setMainStatValue(this.resultSet.getDouble("mainstatvalue"));
 
                 artifacts.add(artifact);
@@ -35,12 +35,17 @@ public class ArtifactDAO {
             //for a in artifacts
             //  a.artifactType = artifactTypeDAO.getartifactType(a.artifactTypeid);
 
+            for (Artifact a : artifacts) {
+                a.setArtifactType(new ArtifactTypeDAO().getArtifactTypeById(a.getArtifactTypeId()));
+                a.setArtifactSetType(new ArtifactSetTypeDAO().getArtifactSetTypebyId(a.getArtifactSetTypeId()));
+                a.setMainStat(new SubstatDAO().getSubstatById(a.getMainStatId()));
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
             this.status = "ERROR";
         }
 
         return artifacts;
-
     }
 }

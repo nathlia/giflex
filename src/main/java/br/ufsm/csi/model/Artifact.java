@@ -8,9 +8,9 @@ public class Artifact {
   private int MainStatId;
   private double MainStatValue;
 
-  //private ArtifactType artifactType;
-  //private ArtifactSetType artifactSetType;
-  // Substat MainStatId;
+  private ArtifactType artifactType;
+  private ArtifactSetType artifactSetType;
+  private Substat MainStat;
 
   public Artifact() {
 
@@ -75,45 +75,27 @@ public class Artifact {
     MainStatValue = mainStatValue;
   }
 
-  //  public ArtifactType getArtifactType() {
-//    return artifactType;
-//  }
-//
-//  public void setArtifactType(ArtifactType artifactType) {
-//    this.artifactType = artifactType;
-//  }
+  public ArtifactType getArtifactType() {
+    return artifactType;
+  }
 
-//  public ArtifactSetType getArtifactSetType() {
-//    return artifactSetType;
-//  }
-//
-//  public void setArtifactSetType(ArtifactSetType artifactSetType) {
-//    this.artifactSetType = artifactSetType;
-//  }
-//
-//  public int getArtifactId() {
-//    return ArtifactId;
-//  }
-//
-//  public void setArtifactId(int artifactId) {
-//    this.ArtifactId = artifactId;
-//  }
+  public void setArtifactType(ArtifactType artifactType) {
+    this.artifactType = artifactType;
+  }
 
-//  public Substat getMainStatId() {
-//    return MainStatId;
-//  }
-//
-//  public void setMainStatId(Substat mainStatId) {
-//    MainStatId = mainStatId;
-//  }
-//  public double getMainStatValue() {
-//    return MainStatValue;
-//  }
-//
-//  public void setMainStatValue(double mainStatValue) {
-//    this.MainStatValue = mainStatValue;
-//  }
+  public ArtifactSetType getArtifactSetType() {
+    return artifactSetType;
+  }
 
+  public void setArtifactSetType(ArtifactSetType artifactSetType) {
+    this.artifactSetType = artifactSetType;
+  }
 
+  public Substat getMainStat() {
+    return MainStat;
+  }
 
+  public void setMainStat(Substat mainStat) {
+    MainStat = mainStat;
+  }
 }

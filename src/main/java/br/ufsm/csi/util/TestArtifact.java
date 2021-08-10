@@ -16,9 +16,13 @@ public class TestArtifact {
         System.out.println("!!!Get Artifacts:!!!");
         for(Artifact a : new ArtifactDAO().getArtifact()) {
             System.out.println("ID:" + a.getArtifactId());
-            System.out.println("Type:" + a.getArtifactTypeId());
-            System.out.println("Set Type:" + a.getArtifactSetTypeId());
-            System.out.println("Main Stat:" + a.getMainStatId());
+            System.out.println("Type ID:" + a.getArtifactTypeId());
+            System.out.println("-Name:" + a.getArtifactType().getName());
+            System.out.println("Set Type ID:" + a.getArtifactSetTypeId());
+            System.out.println("-Name:" + a.getArtifactSetType().getName());
+            System.out.println("-Effect:" + a.getArtifactSetType().getDescription());
+            System.out.println("Main Stat ID:" + a.getMainStatId());
+            System.out.println("-Name:" + a.getMainStat().getName());
             System.out.println("Main Stat Value:" + a.getMainStatValue());
             System.out.println("`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`" );
         }

@@ -36,6 +36,32 @@ public class ArtifactTypeDAO {
         return artTypes;
     }
 
+    public ArtifactType getArtifactTypeById(int id){
+        ArtifactType ArtTypeFound = new ArtifactType();
+
+        try(Connection connection = new ConectDB().getConexao()){
+            this.sql = "SELECT * FROM artifacttype ";
+
+            this.statement = connection.createStatement();
+            this.resultSet = this.statement.executeQuery(sql);
+
+            while (this.resultSet.next()) {
+                if (this.resultSet.getInt("artifacttypeid") == id) {
+                    ArtifactType artType = new ArtifactType();
+                    artType.setArtifactTypeId(this.resultSet.getLong("artifacttypeid"));
+                    artType.setName(this.resultSet.getString("name"));
+
+                    ArtTypeFound = artType;
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return ArtTypeFound;
+    }
+
     public String insert(ArtifactType artType) {
         try(Connection connection = new ConectDB().getConexao()) {
 
