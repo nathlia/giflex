@@ -8,7 +8,8 @@ public class TestCharacter {
         //testGetCharacter();
         //testInsert();
         //testUpdate();
-        //testDelete();
+        //testDeleteUserCharacter();
+        testDeleteCharacterArtifact();
     }
 
     public static void testGetCharacter() {
@@ -36,9 +37,15 @@ public class TestCharacter {
 
     }
 
-    public static void testDelete() {
+    public static void testDeleteUserCharacter() {
         //delete from id
-        Character charaDel = new Character(4);
-        new CharacterDAO().delete(charaDel);
+        Character charaDel = new Character(5);
+        new CharacterDAO().deleteUserCharacter(charaDel);
+    }
+
+    public static void testDeleteCharacterArtifact() {
+        //delete from id
+        Character charaDel = new Character(5);
+        new CharacterDAO().deleteCharacterArtifact(charaDel);
     }
 }

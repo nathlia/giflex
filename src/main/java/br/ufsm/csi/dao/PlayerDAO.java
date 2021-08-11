@@ -14,7 +14,7 @@ public class PlayerDAO {
     private String status;
 
     public ArrayList<Player> getPlayer(){
-        ArrayList<Player> users = new ArrayList<Player>();
+        ArrayList<Player> users = new ArrayList<>();
 
         try(Connection connection = new ConectDB().getConexao()){
             this.sql = "SELECT * FROM player";

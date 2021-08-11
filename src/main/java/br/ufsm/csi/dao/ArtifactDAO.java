@@ -150,7 +150,7 @@ public class ArtifactDAO {
         return this.status;
     }
 
-    public String delete(Artifact artifact) {
+    public String deleteCharacterArtifact(Artifact artifact) {
         try (Connection connection = new ConectDB().getConexao()) {
             connection.setAutoCommit(false);
 
@@ -194,4 +194,49 @@ public class ArtifactDAO {
 
         return this.status;
     }
+
+//    public String deleteArtifactSubtstat(Artifact artifact) {
+//        try (Connection connection = new ConectDB().getConexao()) {
+//            connection.setAutoCommit(false);
+//
+//            this.sql = "DELETE FROM substat " +
+//                    "WHERE  substat.artifactid = ?";
+//
+//            this.preparedStatement = connection.prepareStatement(this.sql);
+//            this.preparedStatement.setInt(1, artifact.getArtifactId());
+//
+//            int deletedFromCharacter = this.preparedStatement.executeUpdate();
+//            if (deletedFromCharacter > 0) {
+//                connection.commit();
+//                this.status = "OK";
+//                System.out.println("* - Artifact was removed from Character - *");
+//            } else {
+//                System.out.println(" x - Artifact could not be removed from Character - x");
+//                this.status = "ERROR";
+//            }
+//
+//            if (this.status.equals("OK")) {
+//                this.sql = "DELETE FROM artifact " +
+//                        " WHERE artifactid = ?";
+//
+//                this.preparedStatement = connection.prepareStatement(this.sql);
+//                this.preparedStatement.setInt(1, artifact.getArtifactId());
+//
+//                int deletedArtifact = this.preparedStatement.executeUpdate();
+//                if (deletedArtifact > 0) {
+//                    connection.commit();
+//                    this.status = "OK";
+//                    System.out.println("* - Artifact was deleted with success - *");
+//                } else {
+//                    this.status = "ERROR";
+//                    System.out.println("x - Error: Could not delete Artifact - x");
+//                }
+//            }
+//
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//
+//        return this.status;
+//    }
 }

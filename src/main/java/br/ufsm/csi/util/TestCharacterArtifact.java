@@ -7,7 +7,7 @@ public class TestCharacterArtifact {
 
     public static void main(String args[]) {
         //testGet();
-        //testInsert();
+        testInsert();
         //testUpdate();
         //testDelete();
     }
@@ -28,7 +28,7 @@ public class TestCharacterArtifact {
     }
 
     public static void testInsert() {
-        CharacterArtifact characterArtifact = new CharacterArtifact(2, 6);
+        CharacterArtifact characterArtifact = new CharacterArtifact(5, 1);
         new CharacterArtifactDAO().insert(characterArtifact);
     }
 

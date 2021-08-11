@@ -14,7 +14,7 @@ public class CharacterDAO {
 
     public ArrayList<Character> getCharacter() {
 
-        ArrayList<Character> characters = new ArrayList<Character>();
+        ArrayList<Character> characters = new ArrayList<>();
 
         try (Connection connection = new ConectDB().getConexao()) {
             this.sql = "SELECT * FROM character";
@@ -136,7 +136,7 @@ public class CharacterDAO {
         return this.status;
     }
 
-    public String delete(Character chara) {
+    public String deleteUserCharacter(Character chara) {
         try (Connection connection = new ConectDB().getConexao()) {
             //BEGIN
             connection.setAutoCommit(false);
@@ -173,6 +173,54 @@ public class CharacterDAO {
                 } else {
                     this.status = "ERROR";
                     System.out.println("Usuario nao existe.");
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            this.status = "ERROR";
+        }
+
+        return this.status;
+    }
+
+    public String deleteCharacterArtifact(Character chara) {
+        try (Connection connection = new ConectDB().getConexao()) {
+            //BEGIN
+            connection.setAutoCommit(false);
+
+            this.sql = "DELETE FROM characterartifact " +
+                    "WHERE characterartifact.characterid = ?";
+
+            this.preparedStatement = connection.prepareStatement(this.sql);
+            this.preparedStatement.setInt(1, chara.getCharacterId());
+
+            int deletedFromUser = this.preparedStatement.executeUpdate();
+            if (deletedFromUser > 0) {
+                connection.commit();
+                this.status = "OK";
+                System.out.println("* - [Artifact] was removed from [Character] - *");
+            } else {
+                System.out.println(" x - [Artifact] could not be removed from [Character] - x");
+                this.status = "ERROR";
+            }
+
+            if (this.status.equals("OK")) {
+                this.sql = "delete from character " +
+                        " where characterid = ?";
+
+                this.preparedStatement = connection.prepareStatement(this.sql);
+                this.preparedStatement.setInt(1, chara.getCharacterId());
+
+                int ok2 = this.preparedStatement.executeUpdate();
+
+                if (ok2 > 0) {
+                    connection.commit();
+                    this.status = "OK";
+                    System.out.println("* - Character was removed with success - *");
+                } else {
+                    this.status = "ERROR";
+                    System.out.println("x - Could not remove Character - x");
                 }
             }
 

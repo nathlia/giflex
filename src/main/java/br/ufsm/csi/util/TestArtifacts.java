@@ -42,6 +42,6 @@ public class TestArtifacts {
 
     public static void testDelete() {
         Artifact artifactDelete = new Artifact(6);
-        new ArtifactDAO().delete(artifactDelete);
+        new ArtifactDAO().deleteCharacterArtifact(artifactDelete);
     }
 }
