@@ -15,26 +15,21 @@ public class ArtifactSubstat {
 
   }
 
-
   public ArtifactSubstat(int artifactSubstatId) {
     ArtifactSubstatId = artifactSubstatId;
   }
 
-  public ArtifactSubstat(int artifactId, int substatId, double substatValue, Artifact artifact, Substat substat) {
+  public ArtifactSubstat(int artifactId, int substatId, double substatValue) {
     ArtifactId = artifactId;
     SubstatId = substatId;
     SubstatValue = substatValue;
-    this.artifact = artifact;
-    this.substat = substat;
   }
 
-  public ArtifactSubstat(int artifactSubstatId, int artifactId, int substatId, double substatValue, Artifact artifact, Substat substat) {
+  public ArtifactSubstat(int artifactSubstatId, int artifactId, int substatId, double substatValue) {
     ArtifactSubstatId = artifactSubstatId;
     ArtifactId = artifactId;
     SubstatId = substatId;
     SubstatValue = substatValue;
-    this.artifact = artifact;
-    this.substat = substat;
   }
 
   public int getArtifactSubstatId() {
@@ -45,7 +40,6 @@ public class ArtifactSubstat {
     this.ArtifactSubstatId = artifactSubstatId;
   }
 
-
   public int getArtifactId() {
     return ArtifactId;
   }
@@ -53,7 +47,6 @@ public class ArtifactSubstat {
   public void setArtifactId(int artifactId) {
     this.ArtifactId = artifactId;
   }
-
 
   public int getSubstatId() {
     return SubstatId;
@@ -72,4 +65,19 @@ public class ArtifactSubstat {
     this.SubstatValue = substatValue;
   }
 
+  public Artifact getArtifact() {
+    return artifact;
+  }
+
+  public void setArtifact(Artifact artifact) {
+    this.artifact = artifact;
+  }
+
+  public Substat getSubstat() {
+    return substat;
+  }
+
+  public void setSubstat(Substat substat) {
+    this.substat = substat;
+  }
 }
