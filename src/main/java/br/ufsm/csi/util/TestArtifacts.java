@@ -9,7 +9,8 @@ public class TestArtifacts {
         //testGetArtifact();
         //testInsert();
         //testUpdate();
-        //testDelete();
+        //testDeleteCharacter();
+        //testDeleteSubstat();
     }
 
     public static void testGetArtifact() {
@@ -29,7 +30,7 @@ public class TestArtifacts {
     }
 
     public static void testInsert() {
-        Artifact artifact = new Artifact(1, 1, 2, 1233);
+        Artifact artifact = new Artifact(4, 2, 4, 20.5);
 
         new ArtifactDAO().insert(artifact);
     }
@@ -40,8 +41,13 @@ public class TestArtifacts {
         new ArtifactDAO().update(artifactUpdate);
     }
 
-    public static void testDelete() {
-        Artifact artifactDelete = new Artifact(6);
+    public static void testDeleteCharacter() {
+        Artifact artifactDelete = new Artifact(7);
         new ArtifactDAO().deleteCharacterArtifact(artifactDelete);
+    }
+
+    public static void testDeleteSubstat() {
+        Artifact artifactDelete = new Artifact(7);
+        new ArtifactDAO().deleteArtifactSubtstat(artifactDelete);
     }
 }

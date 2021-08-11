@@ -24,7 +24,7 @@ public class ArtifactSubstatDAO {
             while (this.resultSet.next()) {
                 ArtifactSubstat artifactSubstat = new ArtifactSubstat();
                 artifactSubstat.setArtifactSubstatId(this.resultSet.getInt("artifactsubstatid"));
-                artifactSubstat.setSubstatId(this.resultSet.getInt("artifactid"));
+                artifactSubstat.setArtifactId(this.resultSet.getInt("artifactid"));
                 artifactSubstat.setSubstatId(this.resultSet.getInt("substatid"));
                 artifactSubstat.setSubstatValue(this.resultSet.getDouble("substatvalue"));
 
@@ -56,7 +56,7 @@ public class ArtifactSubstatDAO {
                 if (this.resultSet.getInt("artifactsubstatid") == id) {
                     ArtifactSubstat artifactSubstat = new ArtifactSubstat();
                     artifactSubstat.setArtifactSubstatId(this.resultSet.getInt("artifactsubstatid"));
-                    artifactSubstat.setSubstatId(this.resultSet.getInt("artifactid"));
+                    artifactSubstat.setArtifactId(this.resultSet.getInt("artifactid"));
                     artifactSubstat.setSubstatId(this.resultSet.getInt("substatid"));
                     artifactSubstat.setSubstatValue(this.resultSet.getDouble("substatvalue"));
 
@@ -165,5 +165,4 @@ public class ArtifactSubstatDAO {
 
         return this.status;
     }
-
 }

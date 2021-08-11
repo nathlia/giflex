@@ -14,7 +14,7 @@ public class TestArtifactSubstat {
     public static void testGet() {
         System.out.println("`-`-`-`- Get Artifact Substats: -`-`-`-`");
         for (ArtifactSubstat a : new ArtifactSubstatDAO().getArtifactSubstat()) {
-            System.out.println("Artifact ID:" + a.getArtifactSubstatId());
+            System.out.println("Artifact ID:" + a.getArtifact().getArtifactId());
             System.out.println("Type ID:" + a.getArtifact().getArtifactTypeId());
             System.out.println("- ype:" + a.getArtifact().getArtifactType().getName());
             System.out.println("Set Type ID:" + a.getArtifact().getArtifactSetTypeId());
@@ -24,26 +24,29 @@ public class TestArtifactSubstat {
             System.out.println("- Name:" + a.getArtifact().getMainStat().getName());
             System.out.println("Main Stat Value:" + a.getArtifact().getMainStatValue());
             System.out.println("Substat Artifact ID:" + a.getArtifactSubstatId());
-            System.out.println("Substat ID:" + a.getSubstat().getSubstatId());
-            System.out.println("- Name:" + a.getSubstat().getName());
+            //while (a.getArtifactId() == a.getArtifactId() of next) {
+                System.out.println("Substat ID:" + a.getSubstat().getSubstatId());
+                System.out.println("- Name:" + a.getSubstat().getName());
+                System.out.println("- Value:" + a.getSubstatValue());
+            //}
             System.out.println("`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`-`");
         }
     }
 
     public static void testInsert() {
-        ArtifactSubstat artifactSubstat = new ArtifactSubstat(1, 1, 2, 1233);
+        ArtifactSubstat artifactSubstat = new ArtifactSubstat(1, 5, 9.1);
 
-        //new ArtifactSubstatDAO().insert(artifactSubstat);
+        new ArtifactSubstatDAO().insert(artifactSubstat);
     }
 
     public static void testUpdate() {
-        ArtifactSubstat artifactSubstatUpdate = new ArtifactSubstat();
+        ArtifactSubstat artifactSubstatUpdate = new ArtifactSubstat(6,7,4, 22.5);
 
-        //new ArtifactSubstatDAO().update(artifactSubstatUpdate);
+        new ArtifactSubstatDAO().update(artifactSubstatUpdate);
     }
 
     public static void testDelete() {
         ArtifactSubstat artifactSubstatDelete = new ArtifactSubstat(6);
-        //new ArtifactSubstatDAO().delete(artifactSubstatDelete);
+        new ArtifactSubstatDAO().delete(artifactSubstatDelete);
     }
 }
