@@ -8,7 +8,7 @@ public class TestCharacter {
         //testGetCharacter();
         //testInsert();
         //testUpdate();
-        testDelete();
+        //testDelete();
     }
 
     public static void testGetCharacter() {
@@ -24,7 +24,7 @@ public class TestCharacter {
     }
 
     public static void testInsert() {
-        Character chara = new Character("Zongli", "80", "36.2%", "109.1%");
+        Character chara = new Character("Eraser", "90", "0.0%", "0.0%");
 
         new CharacterDAO().insert(chara);
     }
@@ -38,9 +38,7 @@ public class TestCharacter {
 
     public static void testDelete() {
         //delete from id
-
-        Character charaDel = new Character(1);
-
+        Character charaDel = new Character(4);
         new CharacterDAO().delete(charaDel);
     }
 }

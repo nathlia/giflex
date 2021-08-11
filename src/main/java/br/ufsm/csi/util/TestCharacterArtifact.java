@@ -7,7 +7,7 @@ public class TestCharacterArtifact {
 
     public static void main(String args[]) {
         //testGet();
-        testInsert();
+        //testInsert();
         //testUpdate();
         //testDelete();
     }
@@ -33,17 +33,12 @@ public class TestCharacterArtifact {
     }
 
     public static void testUpdate() {
-//        Artifact artifactUpdate = new Artifact(2, 1, 2, 3, 4780);
-//        new ArtifactDAO().update(artifactUpdate);
-
-        CharacterArtifact characterArtifactUpdate = new CharacterArtifact(1, 2, 2);
-        //new CharacterArtifactDAO().update(characterArtifactUpdate);
+        CharacterArtifact characterArtifactUpdate = new CharacterArtifact(3, 2, 1);
+        new CharacterArtifactDAO().update(characterArtifactUpdate);
     }
 
     public static void testDelete() {
-//        Artifact artifactDelete = new Artifact(5);
-//        new ArtifactDAO().delete(artifactDelete);
-        CharacterArtifact characterArtifactDelete = new CharacterArtifact(1, 2, 3);
-        //new CharacterArtifactDAO().delete();
+        CharacterArtifact characterArtifactDelete = new CharacterArtifact(3);
+        new CharacterArtifactDAO().delete(characterArtifactDelete);
     }
 }

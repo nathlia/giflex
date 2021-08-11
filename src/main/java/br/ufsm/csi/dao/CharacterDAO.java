@@ -12,11 +12,11 @@ public class CharacterDAO {
     private PreparedStatement preparedStatement;
     private String status;
 
-    public ArrayList<Character> getCharacter(){
+    public ArrayList<Character> getCharacter() {
 
         ArrayList<Character> characters = new ArrayList<Character>();
 
-        try(Connection connection = new ConectDB().getConexao()){
+        try (Connection connection = new ConectDB().getConexao()) {
             this.sql = "SELECT * FROM character";
             this.statement = connection.createStatement();
             this.resultSet = this.statement.executeQuery(sql);
@@ -39,24 +39,26 @@ public class CharacterDAO {
         return characters;
     }
 
-    public Character getCharacterById(int id){
+    public Character getCharacterById(int id) {
 
         Character characterFound = new Character();
 
-        try(Connection connection = new ConectDB().getConexao()){
+        try (Connection connection = new ConectDB().getConexao()) {
             this.sql = "SELECT * FROM character";
             this.statement = connection.createStatement();
             this.resultSet = this.statement.executeQuery(sql);
 
             while (this.resultSet.next()) {
-                Character chara = new Character();
-                chara.setCharacterId(this.resultSet.getInt("characterid"));
-                chara.setName(this.resultSet.getString("name"));
-                chara.setLevel(this.resultSet.getString("level"));
-                chara.setCritRate(this.resultSet.getString("critrate"));
-                chara.setCritDmg(this.resultSet.getString("critdmg"));
+                if (this.resultSet.getInt("characterid") == id) {
+                    Character chara = new Character();
+                    chara.setCharacterId(this.resultSet.getInt("characterid"));
+                    chara.setName(this.resultSet.getString("name"));
+                    chara.setLevel(this.resultSet.getString("level"));
+                    chara.setCritRate(this.resultSet.getString("critrate"));
+                    chara.setCritDmg(this.resultSet.getString("critdmg"));
 
-                characterFound = chara;
+                    characterFound = chara;
+                }
             }
 
         } catch (SQLException e) {
@@ -67,7 +69,7 @@ public class CharacterDAO {
     }
 
     public String insert(Character chara) {
-        try(Connection connection = new ConectDB().getConexao()) {
+        try (Connection connection = new ConectDB().getConexao()) {
 
             //BEGIN
             connection.setAutoCommit(false);
@@ -101,7 +103,7 @@ public class CharacterDAO {
     }
 
     public String update(Character chara) {
-        try(Connection connection = new ConectDB().getConexao()) {
+        try (Connection connection = new ConectDB().getConexao()) {
 
             //BEGIN
             connection.setAutoCommit(false);
@@ -134,31 +136,45 @@ public class CharacterDAO {
         return this.status;
     }
 
-    public String delete(Character chara ) {
-        try(Connection connection = new ConectDB().getConexao()) {
-
+    public String delete(Character chara) {
+        try (Connection connection = new ConectDB().getConexao()) {
             //BEGIN
             connection.setAutoCommit(false);
 
-            //delete from id
-
-            this.sql = "delete from character " +
-                    " where characterid = ?";
+            this.sql = "DELETE FROM usercharacter " +
+                    "WHERE usercharacter.characterid = ?";
 
             this.preparedStatement = connection.prepareStatement(this.sql);
             this.preparedStatement.setInt(1, chara.getCharacterId());
 
-            int ok2 = this.preparedStatement.executeUpdate();
-
-            if (ok2 > 0) {
+            int deletedFromUser = this.preparedStatement.executeUpdate();
+            if (deletedFromUser > 0) {
                 connection.commit();
                 this.status = "OK";
-                System.out.println("Usuario deletado com sucesso! !");
+                System.out.println("* - [Character] was removed from [Player] - *");
             } else {
+                System.out.println(" x - [Character] could not be removed from [Player] - x");
                 this.status = "ERROR";
-                System.out.println("Usuario nao existe.");
             }
 
+            if (this.status.equals("OK")) {
+                this.sql = "delete from character " +
+                        " where characterid = ?";
+
+                this.preparedStatement = connection.prepareStatement(this.sql);
+                this.preparedStatement.setInt(1, chara.getCharacterId());
+
+                int ok2 = this.preparedStatement.executeUpdate();
+
+                if (ok2 > 0) {
+                    connection.commit();
+                    this.status = "OK";
+                    System.out.println("Usuario deletado com sucesso! !");
+                } else {
+                    this.status = "ERROR";
+                    System.out.println("Usuario nao existe.");
+                }
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();

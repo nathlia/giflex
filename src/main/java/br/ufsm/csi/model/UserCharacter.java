@@ -3,7 +3,7 @@ package br.ufsm.csi.model;
 public class UserCharacter {
 
   private int UserCharacterId;
-  private int UserId;
+  private int PlayerId;
   private int CharacterId;
 
   private Player player;
@@ -17,19 +17,15 @@ public class UserCharacter {
     UserCharacterId = userCharacterId;
   }
 
-  public UserCharacter(int userId, int characterId, Player player, Character character) {
-    UserId = userId;
+  public UserCharacter( int characterId, int playerId) {
     CharacterId = characterId;
-    this.player = player;
-    this.character = character;
+    PlayerId = playerId;
   }
 
-  public UserCharacter(int userCharacterId, int userId, int characterId, Player player, Character character) {
+  public UserCharacter(int userCharacterId, int characterId, int playerId) {
     UserCharacterId = userCharacterId;
-    UserId = userId;
+    PlayerId = playerId;
     CharacterId = characterId;
-    this.player = player;
-    this.character = character;
   }
 
   public int getUserCharacterId() {
@@ -41,12 +37,12 @@ public class UserCharacter {
   }
 
 
-  public int getUserId() {
-    return UserId;
+  public int getPlayerId() {
+    return PlayerId;
   }
 
-  public void setUserId(int userId) {
-    this.UserId = userId;
+  public void setPlayerId(int playerId) {
+    this.PlayerId = playerId;
   }
 
 
@@ -58,4 +54,19 @@ public class UserCharacter {
     this.CharacterId = characterId;
   }
 
+  public Player getPlayer() {
+    return player;
+  }
+
+  public void setPlayer(Player player) {
+    this.player = player;
+  }
+
+  public Character getCharacter() {
+    return character;
+  }
+
+  public void setCharacter(Character character) {
+    this.character = character;
+  }
 }

@@ -52,12 +52,14 @@ public class CharacterArtifactDAO {
             this.resultSet = this.statement.executeQuery(sql);
 
             while (this.resultSet.next()) {
-                CharacterArtifact characterArtifact = new CharacterArtifact();
-                characterArtifact.setCharacterArtifactId(this.resultSet.getInt("characterartifactid"));
-                characterArtifact.setCharacterId(this.resultSet.getInt("characterid"));
-                characterArtifact.setArtifactId(this.resultSet.getInt("artifactid"));
+                if (this.resultSet.getInt("characterartifactid") == id) {
+                    CharacterArtifact characterArtifact = new CharacterArtifact();
+                    characterArtifact.setCharacterArtifactId(this.resultSet.getInt("characterartifactid"));
+                    characterArtifact.setCharacterId(this.resultSet.getInt("characterid"));
+                    characterArtifact.setArtifactId(this.resultSet.getInt("artifactid"));
 
-                characterArtifactFound = characterArtifact;
+                    characterArtifactFound = characterArtifact;
+                }
             }
 
             characterArtifactFound.setCharacter(new CharacterDAO().getCharacterById(characterArtifactFound.getCharacterId()));

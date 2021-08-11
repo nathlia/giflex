@@ -59,7 +59,7 @@ public class ArtifactDAO {
             this.resultSet = this.statement.executeQuery(sql);
 
             while (this.resultSet.next()) {
-                if (this.resultSet.getInt("artifacttypeid") == id) {
+                if (this.resultSet.getInt("artifactid") == id) {
                     Artifact artifact = new Artifact();
                     artifact.setArtifactId(this.resultSet.getInt("artifactid"));
                     artifact.setArtifactTypeId(this.resultSet.getInt("artifacttypeid"));

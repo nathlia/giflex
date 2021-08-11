@@ -7,7 +7,7 @@ public class TestPlayer {
 
     public static void main(String args[]){
         //testGetPlayer();
-        //testInsert();
+        testInsert();
         //testUpdate();
         //testDelete();
     }
@@ -41,7 +41,7 @@ public class TestPlayer {
 
     public static void testDelete() {
         //delete from id
-        Player userDel = new Player(4);
+        Player userDel = new Player(2);
 
         new PlayerDAO().delete(userDel);
     }

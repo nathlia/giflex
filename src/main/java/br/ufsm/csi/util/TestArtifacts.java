@@ -9,7 +9,7 @@ public class TestArtifacts {
         //testGetArtifact();
         //testInsert();
         //testUpdate();
-        testDelete();
+        //testDelete();
     }
 
     public static void testGetArtifact() {
