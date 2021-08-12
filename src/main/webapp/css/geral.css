@@ -1,13 +1,14 @@
 body {
-    font-family: Tahoma, Verdana, Geneva, sans-serif;
+    font-family: 'Merriweather', serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
     text-align: left;
     margin: 0;
     font-size: 115%;
     background: #121212;
     overflow-wrap: anywhere;
-    color: #FFFFFF;
+    color: #d9d9d9;
 }
-
 
 #container {
     width: 1440px;
@@ -44,6 +45,7 @@ h1.giflex {
     left: 209px;
     top: 11px;
     font-style: normal;
+    font-weight: 700;
     font-size: 36px;
     line-height: 45px;
 

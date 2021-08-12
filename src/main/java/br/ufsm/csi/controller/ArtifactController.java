@@ -1,8 +1,7 @@
 package br.ufsm.csi.controller;
 
-import br.ufsm.csi.dao.ArtifactTypeDAO;
-import br.ufsm.csi.dao.CharacterDAO;
-import br.ufsm.csi.model.ArtifactType;
+import br.ufsm.csi.dao.*;
+import br.ufsm.csi.model.*;
 import br.ufsm.csi.model.Character;
 
 import javax.servlet.RequestDispatcher;
@@ -15,13 +14,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet("/addArtifact")
-public class ArtifactSetTypeController extends HttpServlet {
+public class ArtifactController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         listArtifactType(request, response);
         listCharacters(request, response);
+        listArtifactSetType(request, response);
+        listMainStat(request, response);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/addArtifact.jsp");
         dispatcher.forward(request, response);
@@ -55,12 +56,42 @@ public class ArtifactSetTypeController extends HttpServlet {
         }
     }
 
+    private void listArtifactSetType(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        ArtifactSetTypeDAO artifactSetTypeDao = new ArtifactSetTypeDAO();
+
+        try {
+            ArrayList<ArtifactSetType> artifactSetTypeList = artifactSetTypeDao.getArtifactSetType();
+            request.setAttribute("artifactSetTypeList", artifactSetTypeList);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ServletException(e);
+        }
+    }
+
+    private void listMainStat(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        SubstatDAO substatDao = new SubstatDAO();
+
+        try {
+            ArrayList<Substat> substatList = substatDao.getSubstat();
+            request.setAttribute("artifactMainStat", substatList);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ServletException(e);
+        }
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         listCharacters(request, response);
         listArtifactType(request, response);
+        listArtifactSetType(request, response);
+        listMainStat(request, response);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/addArtifact.jsp");
         dispatcher.forward(request, response);

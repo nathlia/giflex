@@ -8,24 +8,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="core" %>
-<%@page isELIgnored="false" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Add Artifact</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href ="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" >
+
     <style>
         <%@include file="./css/geral.css" %>
-        /*<link rel="preconnect" href="https://fonts.googleapis.com">*/
-        /*<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>*/
-        <
-        link href
-
-        =
-        "https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap"
-        rel
-
-        =
-        "stylesheet"
-        >
     </style>
 </head>
 <body>
@@ -45,24 +38,37 @@
         <div id="add-artifact-form">
             <div id="add-main-stats">
                 <form action="addArtifact" method="post">
-                    &nbsp;
                     <label>Artifact Type:</label>
                     <select name="artifactType">
                         <c:forEach items="${artifactTypeList}" var="artifactType">
-                            <option value="${artifactType.getArtifactTypeId()}"
-                            >
+                            <option value="${artifactType.getArtifactTypeId()}">
                                     ${artifactType.getName()}
                             </option>
                         </c:forEach>
                     </select>
                     <br/><br/>
                     <label>Artifact Set:</label>
+                    <select name="artifactSet">
+                        <c:forEach items="${artifactSetTypeList}" var="artifactSet">
+                            <option value="${artifactSet.getArtifactSetTypeId()}">
+                                    ${artifactSet.getName()}
+                            </option>
+                        </c:forEach>
+                    </select>
                     <br/><br/>
                     <label>Main Stat:</label>
+                    <select name="mainStat">
+                        <c:forEach items="${artifactMainStat}" var="mainStat">
+                            <option value="${mainStat.getSubstatId()}">
+                                ${mainStat.getName()}
+                            </option>
+                        </c:forEach>
+                    </select>
                     <br/><br/>
                     <label>Main Stat Value:</label>
+                    <input type="text" name="mainStatValue" />
                     <br/><br/>
-                    <input type="submit" value="Show"/>
+                    <input type="submit" value="Save"/>
                 </form>
             </div>
             <div id="add-sub-stats"></div>
