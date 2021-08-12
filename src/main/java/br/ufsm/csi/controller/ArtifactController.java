@@ -16,6 +16,7 @@ import java.util.ArrayList;
 @WebServlet("/addArtifact")
 public class ArtifactController extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private static final int characterId = 1; //xiao
 
     String status = "";
 
@@ -35,8 +36,8 @@ public class ArtifactController extends HttpServlet {
         CharacterDAO characterDao = new CharacterDAO();
 
         try {
-            ArrayList<Character> characterList = characterDao.getCharacter();
-            request.setAttribute("character", characterList.get(1));
+            Character character = characterDao.getCharacterById(characterId);
+            request.setAttribute("character", character);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,6 +108,10 @@ public class ArtifactController extends HttpServlet {
         Artifact artifact = new Artifact(artifactTypeId, artifactSetId, mainSetId, mainStatValue);
         status = artifactDAO.insert(artifact);
         request.setAttribute("status-insert", status);
+
+        int artifactId = artifact.getArtifactId();
+
+        System.out.printf(" Artifact ID: %d\n", artifactId);
 
         listCharacters(request, response);
         listArtifactType(request, response);
