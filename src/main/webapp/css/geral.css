@@ -82,7 +82,13 @@ input[type=submit] {
     font-weight: bold;
     font-size: 23px;
     line-height: 31px;
+    border-width: 0px;
+
 
     color: #FFFFFF;
+}
+
+input[type=submit]:hover {
+    color: #251e3a;
 }
 

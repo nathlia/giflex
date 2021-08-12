@@ -15,7 +15,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href ="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap"
+          rel="stylesheet">
 
     <style>
         <%@include file="./css/geral.css" %>
@@ -60,13 +61,13 @@
                     <select name="mainStat">
                         <c:forEach items="${artifactMainStat}" var="mainStat">
                             <option value="${mainStat.getSubstatId()}">
-                                ${mainStat.getName()}
+                                    ${mainStat.getName()}
                             </option>
                         </c:forEach>
                     </select>
                     <br/><br/>
                     <label>Main Stat Value:</label>
-                    <input type="text" name="mainStatValue" />
+                    <input type="text" name="mainStatValue"/>
                     <br/><br/>
                     <input type="submit" value="Save"/>
                 </form>

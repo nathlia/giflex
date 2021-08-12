@@ -17,6 +17,8 @@ import java.util.ArrayList;
 public class ArtifactController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    String status = "";
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         listArtifactType(request, response);
@@ -88,12 +90,30 @@ public class ArtifactController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //int artifactTypeId = request.getParameter("nome");
+        int artifactTypeId = Integer.parseInt(request.getParameter("artifactType"));
+        int artifactSetId = Integer.parseInt(request.getParameter("artifactSet"));
+        int mainSetId = Integer.parseInt(request.getParameter("mainStat"));
+        String mainStatValueString = request.getParameter("mainStatValue");
+
+        double mainStatValue = (mainStatValueString == null || mainStatValueString.isEmpty())
+                ? 0
+                : Double.parseDouble(mainStatValueString);
+
+        System.out.printf("Type: %d \nSet: %d \nMainStatId: %d \nvalue: %.2f\n", artifactTypeId, artifactSetId, mainSetId, mainStatValue);
+
+        ArtifactDAO artifactDAO = new ArtifactDAO();
+
+        Artifact artifact = new Artifact(artifactTypeId, artifactSetId, mainSetId, mainStatValue);
+        status = artifactDAO.insert(artifact);
+        request.setAttribute("status-insert", status);
+
         listCharacters(request, response);
         listArtifactType(request, response);
         listArtifactSetType(request, response);
         listMainStat(request, response);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/addArtifact.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
     }
 }
