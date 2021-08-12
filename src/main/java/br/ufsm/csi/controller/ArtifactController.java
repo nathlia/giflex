@@ -107,16 +107,15 @@ public class ArtifactController extends HttpServlet {
 
         Artifact artifact = new Artifact(artifactTypeId, artifactSetId, mainSetId, mainStatValue);
         status = artifactDAO.insert(artifact);
-        request.setAttribute("status-insert", status);
 
         int artifactId = artifact.getArtifactId();
 
         System.out.printf(" Artifact ID: %d\n", artifactId);
 
-        listCharacters(request, response);
-        listArtifactType(request, response);
-        listArtifactSetType(request, response);
-        listMainStat(request, response);
+        CharacterArtifactDAO characterArtifactDAO = new CharacterArtifactDAO();
+
+        CharacterArtifact characterArtifact = new CharacterArtifact(characterId, artifactId);
+        status = characterArtifactDAO.insert(characterArtifact);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);

@@ -62,10 +62,33 @@ h1.giflex {
 }
 
 #character-card{
-    width: 164px;
-    height: 209px;
-    left: 370px;
+    position: absolute;
+    width: 150px;
+    height: 197px;
+    left: 379px;
     top: 313px;
+    margin: auto;
+
+    background: #27263A;
+    border-radius: 12px;
+}
+#character-card-name {
+    position: relative;
+    height: 41px;
+    text-align: center;
+
+    background: rgba(255, 191, 27, 0.74);
+}
+h2.character-card-name {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#character-card-img{
+    position: relative;
+    width: 150px;
+    height: auto;
+    top: 22px;
 }
 
 input[type=submit] {
@@ -90,5 +113,19 @@ input[type=submit] {
 
 input[type=submit]:hover {
     color: #251e3a;
+}
+
+#add-artifact-form{
+    margin: auto;
+    width: 428px;
+    height: 510px;
+    left: 644px;
+    top: 277px;
+}
+
+#save-button {
+    position: relative;
+    left: 500px;
+    top: 400px;
 }
 
