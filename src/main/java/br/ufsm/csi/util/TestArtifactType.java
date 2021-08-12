@@ -6,7 +6,7 @@ import br.ufsm.csi.model.ArtifactType;
 public class TestArtifactType {
     public static void main(String args[]){
         //testInsert();
-        //testGetArtifactType();
+        testGetArtifactType();
         //testUpdate();
         //testDelete();
     }

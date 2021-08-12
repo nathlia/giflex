@@ -14,7 +14,7 @@ public class ArtifactTypeDAO {
 
     public ArrayList<ArtifactType> getArtifactType(){
 
-        ArrayList<ArtifactType> artTypes = new ArrayList<ArtifactType>();
+        ArrayList<ArtifactType> artTypes = new ArrayList<>();
 
         try(Connection connection = new ConectDB().getConexao()){
             this.sql = "SELECT * FROM artifacttype";
@@ -54,6 +54,7 @@ public class ArtifactTypeDAO {
                     ArtTypeFound = artType;
                 }
             }
+            System.out.println("* - Inside Artifact Type Get- *");
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -17,11 +17,7 @@
   </style>
 </head>
 <body>
-<c:forEach var="character" items="${characters}">
-  <div class="characterCard">
-    <a href="addCharacter.jsp">${character.name}</a>
-  </div>
-</c:forEach>
+<a href="addArtifact.jsp">Add Artifact</a>
 <%--add chara button--%>
 <%--show added characters--%>
 <%--clicking a character redirect to equipped artifacts--%>
