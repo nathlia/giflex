@@ -9,6 +9,10 @@
 <html>
 <head>
     <title>Add Characters</title>
+    <style>
+        <%@include file="./css/reset.css"%>
+        <%@include file="./css/geral.css"%>
+    </style>
 </head>
 <body>
     -> select character

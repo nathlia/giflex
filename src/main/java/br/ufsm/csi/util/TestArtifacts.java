@@ -48,6 +48,6 @@ public class TestArtifacts {
 
     public static void testDeleteSubstat() {
         Artifact artifactDelete = new Artifact(7);
-        new ArtifactDAO().deleteArtifactSubtstat(artifactDelete);
+        new ArtifactDAO().deleteArtifactSubstat(artifactDelete);
     }
 }

@@ -9,6 +9,10 @@
 <html>
 <head>
     <title>Create Account</title>
+    <style>
+        <%@include file="./css/reset.css"%>
+        <%@include file="./css/geral.css"%>
+    </style>
 </head>
 <body>
 <form action="index.jsp" method="post">

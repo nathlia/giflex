@@ -1,0 +1,9 @@
+body {
+    font-family: Tahoma, Verdana, Geneva, sans-serif;
+    text-align: left;
+    margin: 0;
+    font-size: 115%;
+    background-color: #191923;
+    overflow-wrap: anywhere;
+    color: #FFFFFF;
+}

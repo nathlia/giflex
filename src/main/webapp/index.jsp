@@ -1,4 +1,3 @@
-
 <%--
   Created by IntelliJ IDEA.
   User: Natty
@@ -7,17 +6,25 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page isELIgnored="false" %>
 <html>
 <head>
   <title>Giflex</title>
-  add chara button
-  characters list
-  <%--add chara button--%>
-  <%--show added characters--%>
-  <%--clicking a character redirect to equipped artifacts--%>
+  <style>
+    <%@include file="./css/reset.css"%>
+    <%@include file="./css/geral.css"%>
+  </style>
 </head>
 <body>
-
+<c:forEach var="character" items="${characters}">
+  <div class="characterCard">
+    <a href="addCharacter.jsp">${character.name}</a>
+  </div>
+</c:forEach>
+<%--add chara button--%>
+<%--show added characters--%>
+<%--clicking a character redirect to equipped artifacts--%>
 </body>
 </html>
 

@@ -9,6 +9,10 @@
 <html>
 <head>
     <title>Login</title>
+    <style>
+        <%@include file="./css/reset.css"%>
+        <%@include file="./css/geral.css"%>
+    </style>
 </head>
 <body>
 <h3>Login</h3>

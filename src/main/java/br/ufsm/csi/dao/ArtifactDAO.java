@@ -195,7 +195,7 @@ public class ArtifactDAO {
         return this.status;
     }
 
-    public String deleteArtifactSubtstat(Artifact artifact) {
+    public String deleteArtifactSubstat(Artifact artifact) {
         try (Connection connection = new ConectDB().getConexao()) {
             connection.setAutoCommit(false);
 
