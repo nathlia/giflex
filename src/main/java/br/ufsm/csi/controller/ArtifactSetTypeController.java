@@ -22,6 +22,9 @@ public class ArtifactSetTypeController extends HttpServlet {
         throws ServletException, IOException {
         listArtifactType(request, response);
         listCharacters(request, response);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/addArtifact.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void listCharacters(HttpServletRequest request, HttpServletResponse response)
@@ -30,10 +33,8 @@ public class ArtifactSetTypeController extends HttpServlet {
 
         try {
             ArrayList<Character> characterList = characterDao.getCharacter();
-            request.setAttribute("character", characterList);
+            request.setAttribute("character", characterList.get(1));
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/addArtifact.jsp");
-            dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException(e);
@@ -48,8 +49,6 @@ public class ArtifactSetTypeController extends HttpServlet {
             ArrayList<ArtifactType> artifactTypeList = ArtTypeDao.getArtifactType();
             request.setAttribute("artifactTypeList", artifactTypeList);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/addArtifact.jsp");
-            dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException(e);
@@ -60,8 +59,10 @@ public class ArtifactSetTypeController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int artifactTypeId = Integer.parseInt(request.getParameter("artifactType"));
-        request.setAttribute("selectedArtTypeId", artifactTypeId);
+        listCharacters(request, response);
         listArtifactType(request, response);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/addArtifact.jsp");
+        dispatcher.forward(request, response);
     }
 }

@@ -66,3 +66,21 @@ h1.giflex {
     top: 313px;
 }
 
+input[type=submit] {
+    width: 160px;
+    height: 43px;
+    left: 1044px;
+    top: 871px;
+
+    background: #9D75F3;
+    border-radius: 23px;
+
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 31px;
+
+    color: #FFFFFF;
+}
+

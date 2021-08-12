@@ -17,7 +17,7 @@
   </style>
 </head>
 <body>
-<a href="addArtifact.jsp">Add Artifact</a>
+<a href="addArtifact">Add Artifact</a>
 <%--add chara button--%>
 <%--show added characters--%>
 <%--clicking a character redirect to equipped artifacts--%>
