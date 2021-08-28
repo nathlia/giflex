@@ -63,8 +63,6 @@ public class addCharacterController extends HttpServlet {
 
         System.out.printf("Selected Character ID: \n Level: %s\n Crit Rate: %s\n Crit DMG: %s\n", level, critRate, critDmg);
 
-
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("/addCharacter.jsp");
         dispatcher.forward(request, response);
     }

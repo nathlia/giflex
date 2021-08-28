@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Natty
-  Date: 8/7/2021
-  Time: 4:54 PM
+  Date: 8/28/2021
+  Time: 3:10 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,7 +10,7 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>Giflex</title>
+    <title>Artifact Set</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,36 +28,35 @@
     </div>
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
-        <p>My Characters</p>
-        <a href="addArtifact"><button>Add Artifact</button></a>
+        <p>Artifact Set</p>
 
-        <div id="add-character-button">
-            <a class="add-character-button" href="addCharacter"><button>Add Character</button></a>
-        </div>
-
-        <p class="alt-color">Select a character</p>
-        <section class="characters-tray">
+        <section class="character-status-card">
             <c:forEach items="${characterList}" var="character">
-                <%--<div class="character-card">--%>
                 <div class="item" id="item">
-                    <a href="ArtifactSet?characterId=${character.getCharacterId()}">
-                        <span class="hyperspan"></span>
-                    </a>
                     <img src="img/characters/${character.getName()}.png" height="209" width="150"
                          id="character-card-img">
                     <div id="character-card-name">
                         <h3>${character.getName()}</h3>
                     </div>
+                    <div id="character-card-status">
+                        <h4>Level: ${character.getLevel()}</h4>
+                        <h4>Crit Rate: ${character.getCritRate()}</h4>
+                        <h4>Crit DMG: ${character.getCritDmg()}</h4>
+                    </div>
                 </div>
-                <%--</div>--%>
             </c:forEach>
+        </section>
+        <section class="artifacts-tray">
+            <c:forEach items="${artifactList}" var="artifact">
+
+            </c:forEach>
+
         </section>
         <%--add chara button--%>
         <%--show added characters--%>
         <%--clicking a character redirect to equipped artifacts--%>
     </div>
 </div>
+
 </body>
 </html>
-
-
