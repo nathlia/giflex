@@ -42,38 +42,40 @@
                     </c:forEach>
                 </select>
                 <div id="select-character">
-                    <input class="select-character" type="submit" value="Select">
+                    <input class="select-character" nome="select-character" type="submit" value="Select">
                 </div>
             </form>
         </div>
-        <form action="addCharacter" method="post">
-            <section class="add-character-form">
-                <div id="character-card">
-                    <div class="item">
-                        <img src="img/characters/${character.getName()}.png" height="209" width="150"
-                             id="character-card-img">
-                        <div id="character-card-name">
-                            <h3>${character.getName()}</h3>
+
+            <form action="addCharacter" method="post">
+                <section class="add-character-form">
+                    <div id="character-card">
+                        <div class="item">
+                            <img src="img/characters/${character.getName()}.png" height="209" width="150"
+                                 id="character-card-img">
+                            <div id="character-card-name">
+                                <h3>${character.getName()}</h3>
+                            </div>
                         </div>
                     </div>
+                    <div class="character-form-tray">
+                        <label>Level:</label>
+                        <input type="text" name="level"/>
+                        <br/><br/>
+                        <label>Crit Rate:</label>
+                        <input type="text" name="critRate"/>
+                        <br/><br/>
+                        <label>Crit DMG:</label>
+                        <input type="text" name="critDmg"/>
+                    </div>
+                </section>
+                <br/><br/>
+                <div id="add-character-button">
+                    <input class="select-character" nome="back" type="submit" value="Back">
+                    <input class="select-character" name="save" type="submit" value="Save">
                 </div>
-                <div class="character-form-tray">
-                    <label>Level:</label>
-                    <input type="text" name="level"/>
-                    <br/><br/>
-                    <label>Crit Rate:</label>
-                    <input type="text" name="critRate"/>
-                    <br/><br/>
-                    <label>Crit DMG:</label>
-                    <input type="text" name="critDmg"/>
-                </div>
-            </section>
-            <br/><br/>
-            <div id="add-character-button">
-                <input class="select-character" type="submit" value="Back">
-                <input class="select-character" type="submit" value="Save">
-            </div>
-        </form>
+            </form>
+        
     </div>
 </div>
 
