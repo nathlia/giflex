@@ -33,9 +33,11 @@
         <h2>Genshin Impact Character Showcase</h2>
         <p>Add Artifact</p>
         <div id="character-card">
-            <img src="img/characters/1.png" height="209" width="150" id="character-card-img">
-            <div id="character-card-name">
-                <h3>${character.name}</h3>
+            <div class="item">
+                <img src="img/characters/1.png" height="209" width="150" id="character-card-img">
+                <div id="character-card-name">
+                    <h3>${character.name}</h3>
+                </div>
             </div>
         </div>
         <div id="add-artifact-form">

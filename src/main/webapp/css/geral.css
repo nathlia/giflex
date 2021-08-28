@@ -37,6 +37,11 @@ body {
     margin: auto;
     background: rgba(157, 122, 255, 0.33);
 }
+
+p.alt-color {
+   color: rgba(255, 255, 255, 0.57);
+}
+
 /* GIFLEX */
 h1.giflex {
     position: relative;
@@ -61,7 +66,7 @@ h1.giflex {
     padding: 18px 18px 18px 46px;
 }
 
-#character-card{
+.character-card{
     position: absolute;
     width: 150px;
     height: 197px;
@@ -74,14 +79,17 @@ h1.giflex {
 }
 #character-card-name {
     position: relative;
-    height: 41px;
+    height: 39px;
     text-align: center;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 
     background: rgba(255, 191, 27, 0.74);
 }
-h2.character-card-name {
+h3.character-card-name {
     display: table-cell;
     vertical-align: middle;
+
 }
 
 #character-card-img{
@@ -113,6 +121,7 @@ input[type=submit] {
 
 input[type=submit]:hover {
     color: #251e3a;
+    cursor: pointer;
 }
 
 #add-artifact-form{
@@ -129,3 +138,33 @@ input[type=submit]:hover {
     top: 400px;
 }
 
+input[type=submit].add-character {
+    width: 199px;
+}
+
+#add-character-button {
+    position: relative;
+    /*left: 1133px;*/
+    /*top: 54px;*/
+}
+
+.characters-tray {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    margin: auto;
+}
+
+.item {
+    width: 150px;
+    height: 212px;
+    left: 379px;
+    top: 313px;
+    margin: 18px;
+
+    background: #27263A;
+    border-radius: 12px;
+}

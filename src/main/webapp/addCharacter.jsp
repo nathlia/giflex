@@ -15,17 +15,19 @@
     </style>
 </head>
 <body>
-    -> select character
-    -> input level
-    -> input crit rate
-    -> input crit dmg
 
-    -> delete button
-    -> edit button
-    -> add button
 
-    -> show added with success message
-    -> ok button
-    -> go to index.jsp
+<%--    -> select character--%>
+<%--    -> input level--%>
+<%--    -> input crit rate--%>
+<%--    -> input crit dmg--%>
+
+<%--    -> delete button--%>
+<%--    -> edit button--%>
+<%--    -> add button--%>
+
+<%--    -> show added with success message--%>
+<%--    -> ok button--%>
+<%--    -> go to index.jsp--%>
 </body>
 </html>

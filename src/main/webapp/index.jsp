@@ -1,13 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: Natty
-  Date: 8/7/2021
-  Time: 4:54 PM
+  Date: 8/28/2021
+  Time: 7:58 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page isELIgnored="false" %>
 <html>
 <head>
     <title>Giflex</title>
@@ -27,17 +25,15 @@
         <div id="navbar_line"></div>
     </div>
     <div id="main">
-        <a href="addArtifact">Add Artifact</a>
-        <h3>${status}</h3>
-        <c:if test="${status == 'OK'}">
-            <h2>Artifact added with success</h2>
-        </c:if>
-        <%--add chara button--%>
-        <%--show added characters--%>
-        <%--clicking a character redirect to equipped artifacts--%>
+        <h2>Genshin Impact Character Showcase</h2>
+        <form action="characters" method="post">
+            <div id="add-character-button">
+                <input class="add-character" type="submit" value="Show Characters"/>
+            </div>
+        </form>
+
     </div>
 </div>
+
 </body>
 </html>
-
-
