@@ -33,7 +33,7 @@ body {
     position: relative;
     height: 1px;
     left: 0px;
-    top: -2px;
+    top: 25px;
     margin: auto;
     background: rgba(157, 122, 255, 0.33);
 }
@@ -43,17 +43,18 @@ p.alt-color {
 }
 
 /* GIFLEX */
-h1.giflex {
+a.giflex,
+h1.giflex{
     position: relative;
     width: 143px;
     height: 49px;
     left: 209px;
-    top: 11px;
+    top: 22px;
     font-style: normal;
     font-weight: 700;
     font-size: 36px;
     line-height: 45px;
-
+    text-decoration: none;
     color: #FFFFFF;
 }
 
@@ -168,3 +169,29 @@ input[type=submit].add-character {
     background: #27263A;
     border-radius: 12px;
 }
+
+.add-character-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    margin: auto;
+    width: 662px;
+    height: 328px;
+    left: 388px;
+    top: 366px;
+}
+
+#character-form-tray {
+    width: 662px;
+    height: 328px;
+    left: 388px;
+    top: 366px;
+}
+
+.add-character-centre {
+    position: relative;
+}
+

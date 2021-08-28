@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/characters")
-public class CharactersController extends HttpServlet {
+@WebServlet("/addCharacter")
+public class selectCharacterController extends HttpServlet{
     private static final long serialVersionUID = 1L;
 
     String status = "";
@@ -22,7 +22,7 @@ public class CharactersController extends HttpServlet {
             throws ServletException, IOException {
         listCharacters(request, response);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Characters.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/addCharacter.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -44,9 +44,17 @@ public class CharactersController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+//       String levelSting = request.getParameter("level");
+//
+//       double level = (levelSting == null || levelSting.isEmpty())
+//               ? 0
+//               : Double.parseDouble(levelSting);
+//
+//       System.out.printf("Level: %.2f", level);
+
         listCharacters(request, response);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Characters.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/addCharacter.jsp");
         dispatcher.forward(request, response);
     }
 }

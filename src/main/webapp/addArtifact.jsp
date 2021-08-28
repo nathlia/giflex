@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Natty
@@ -7,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <html>
 <head>
@@ -26,7 +25,7 @@
 
 <div id="container">
     <div id="navbar">
-        <h1 class="giflex">Giflex</h1>
+        <a href="index.jsp" class="giflex">Giflex</a>
         <div id="navbar_line"></div>
     </div>
     <div id="main">

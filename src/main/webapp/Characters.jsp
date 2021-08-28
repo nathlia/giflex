@@ -23,14 +23,14 @@
 <body>
 <div id="container">
     <div id="navbar">
-        <h1 class="giflex">Giflex</h1>
+        <a href="index.jsp" class="giflex">Giflex</a>
         <div id="navbar_line"></div>
     </div>
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
         <p>My Characters</p>
         <a href="addArtifact">Add Artifact</a>
-        <form action="addCharacter.jsp" method="post">
+        <form action="addCharacter" method="post">
             <div id="add-character-button">
                 <input class="add-character" type="submit" value="Add Character"/>
             </div>
@@ -38,7 +38,7 @@
         <p class="alt-color">Select a character</p>
         <section class="characters-tray">
             <c:forEach items="${characterList}" var="character">
-                <%--                <div class="character-card">--%>
+                <%--<div class="character-card">--%>
                 <div class="item">
                     <img src="img/characters/${character.getName()}.png" height="209" width="150"
                          id="character-card-img">
@@ -46,7 +46,7 @@
                         <h3>${character.getName()}</h3>
                     </div>
                 </div>
-                <%--                </div>--%>
+                <%--</div>--%>
             </c:forEach>
 
 
