@@ -29,12 +29,12 @@
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
         <p>My Characters</p>
-        <a href="addArtifact">Add Artifact</a>
-        <form action="addCharacter" method="post">
-            <div id="add-character-button">
-                <input class="add-character" type="submit" value="Add Character"/>
-            </div>
-        </form>
+        <a href="addArtifact"><button>Add Artifact</button></a>
+
+        <div id="add-character-button">
+            <a class="add-character-button" href="addCharacter"><button>Add Character</button></a>
+        </div>
+
         <p class="alt-color">Select a character</p>
         <section class="characters-tray">
             <c:forEach items="${characterList}" var="character">

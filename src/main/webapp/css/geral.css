@@ -115,8 +115,40 @@ input[type=submit] {
     font-size: 23px;
     line-height: 31px;
     border-width: 0px;
+    border-radius: 23px;
 
+    color: #FFFFFF;
+}
 
+button {
+    padding-left: 32px;
+    padding-right: 32px;
+    margin: 4px;
+    height: 43px;
+    left: 1044px;
+    top: 871px;
+
+    background: #9D75F3;
+    border-radius: 23px;
+
+    font-family: Segoe UI;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 31px;
+    border-width: 0px;
+    border-radius: 23px;
+
+    color: #FFFFFF;
+}
+a.add-character-button {
+    text-decoration: none;
+}
+a.add-character-button:hover {
+    color: #251e3a;
+    cursor: pointer;
+}
+a.add-character-button:visited {
     color: #FFFFFF;
 }
 
@@ -135,8 +167,6 @@ input[type=submit]:hover {
 
 #save-button {
     position: relative;
-    left: 500px;
-    top: 400px;
 }
 
 input[type=submit].add-character {
@@ -195,3 +225,6 @@ input[type=submit].add-character {
     position: relative;
 }
 
+button.add-character-button {
+    width: 200px;
+}

@@ -32,50 +32,57 @@
         <h2>Genshin Impact Character Showcase</h2>
         <div class="add-character-centre">
             <p>Add Character</p>
-            <form action="addCharacter" method="post">
-                <label>Select Character:</label>
-                <select name="selectCharacter">
-                    <c:forEach items="${characterList}" var="character">
-                        <option value="${character.getCharacterId()}">
-                                ${character.getName()}
-                        </option>
-                    </c:forEach>
-                </select>
-                <div id="select-character">
-                    <input class="select-character" nome="select-character" type="submit" value="Select">
-                </div>
-            </form>
+            <%--            <form action="addCharacter" method="post">--%>
+            <%--                <label>Select Character:</label>--%>
+            <%--                <select name="selectCharacter">--%>
+            <%--                    <c:forEach items="${characterList}" var="character">--%>
+            <%--                        <option value="${character.getCharacterId()}">--%>
+            <%--                                ${character.getName()}--%>
+            <%--                        </option>--%>
+            <%--                    </c:forEach>--%>
+            <%--                </select>--%>
+            <%--                <div id="select-character">--%>
+            <%--                    <input class="select-character" nome="select-character" type="submit" value="Select">--%>
+            <%--                </div>--%>
+            <%--            </form>--%>
         </div>
 
-            <form action="addCharacter" method="post">
-                <section class="add-character-form">
-                    <div id="character-card">
-                        <div class="item">
-                            <img src="img/characters/${character.getName()}.png" height="209" width="150"
-                                 id="character-card-img">
-                            <div id="character-card-name">
-                                <h3>${character.getName()}</h3>
-                            </div>
+        <form action="addCharacter" method="post">
+            <label>Select Character:</label>
+            <select name="selectCharacter">
+                <c:forEach items="${characterList}" var="characters">
+                    <option value="${characters.getCharacterId()}">
+                            ${characters.getName()}
+                    </option>
+                </c:forEach>
+            </select>
+            <br/><br/>
+            <section class="add-character-form">
+                <div id="character-card">
+                    <div class="item">
+                        <img src="img/characters/${character.getName()}.png" height="209" width="150"
+                             id="character-card-img">
+                        <div id="character-card-name">
+                            <h3>${character.getName()}</h3>
                         </div>
                     </div>
-                    <div class="character-form-tray">
-                        <label>Level:</label>
-                        <input type="text" name="level"/>
-                        <br/><br/>
-                        <label>Crit Rate:</label>
-                        <input type="text" name="critRate"/>
-                        <br/><br/>
-                        <label>Crit DMG:</label>
-                        <input type="text" name="critDmg"/>
-                    </div>
-                </section>
-                <br/><br/>
-                <div id="add-character-button">
-                    <input class="select-character" nome="back" type="submit" value="Back">
-                    <input class="select-character" name="save" type="submit" value="Save">
                 </div>
-            </form>
-        
+                <div class="character-form-tray">
+                    <label>Level:</label>
+                    <input type="text" name="level"/>
+                    <br/><br/>
+                    <label>Crit Rate:</label>
+                    <input type="text" name="critRate"/>
+                    <br/><br/>
+                    <label>Crit DMG:</label>
+                    <input type="text" name="critDmg"/>
+                </div>
+            </section>
+            <br/><br/>
+            <div id="add-character-button">
+                <input class="select-character" type="submit" value="Save">
+            </div>
+        </form>
     </div>
 </div>
 

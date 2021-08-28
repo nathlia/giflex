@@ -31,9 +31,7 @@
                 <input class="add-character" type="submit" value="Show Characters"/>
             </div>
         </form>
-
     </div>
 </div>
-
 </body>
 </html>

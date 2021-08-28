@@ -103,19 +103,19 @@ public class ArtifactController extends HttpServlet {
 
         System.out.printf("Type: %d \nSet: %d \nMainStatId: %d \nvalue: %.2f\n", artifactTypeId, artifactSetId, mainSetId, mainStatValue);
 
-        ArtifactDAO artifactDAO = new ArtifactDAO();
+//        ArtifactDAO artifactDAO = new ArtifactDAO();
+//
+//        Artifact artifact = new Artifact(artifactTypeId, artifactSetId, mainSetId, mainStatValue);
+//        status = artifactDAO.insert(artifact);
+//
+//        int artifactId = artifact.getArtifactId();
 
-        Artifact artifact = new Artifact(artifactTypeId, artifactSetId, mainSetId, mainStatValue);
-        status = artifactDAO.insert(artifact);
+        //System.out.printf(" Artifact ID: %d\n", artifactId);
 
-        int artifactId = artifact.getArtifactId();
-
-        System.out.printf(" Artifact ID: %d\n", artifactId);
-
-        CharacterArtifactDAO characterArtifactDAO = new CharacterArtifactDAO();
-
-        CharacterArtifact characterArtifact = new CharacterArtifact(characterId, artifactId);
-        status = characterArtifactDAO.insert(characterArtifact);
+//        CharacterArtifactDAO characterArtifactDAO = new CharacterArtifactDAO();
+//
+//        CharacterArtifact characterArtifact = new CharacterArtifact(characterId, artifactId);
+//        status = characterArtifactDAO.insert(characterArtifact);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Characters.jsp");
         dispatcher.forward(request, response);

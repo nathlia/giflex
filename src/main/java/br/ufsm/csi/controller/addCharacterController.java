@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet("/addCharacter")
-public class addCharacterController extends HttpServlet{
+public class addCharacterController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     String status = "";
@@ -53,16 +53,17 @@ public class addCharacterController extends HttpServlet{
 //            System.out.printf("Selected ID: %d", selectedCharacterId);
 //
 //        }
-
-       String levelSting = request.getParameter("level");
-
-       double level = (levelSting == null || levelSting.isEmpty())
-               ? 0
-               : Double.parseDouble(levelSting);
-
-       System.out.printf("Level: %.2f", level);
-
+//
         listCharacters(request, response);
+
+        //int CharacterId = Integer.parseInt(request.getParameter("characters"));
+        String level = request.getParameter("level");
+        String critRate = request.getParameter("critRate");
+        String critDmg = request.getParameter("critDmg");
+
+        System.out.printf("Selected Character ID: \n Level: %s\n Crit Rate: %s\n Crit DMG: %s\n", level, critRate, critDmg);
+
+
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/addCharacter.jsp");
         dispatcher.forward(request, response);
