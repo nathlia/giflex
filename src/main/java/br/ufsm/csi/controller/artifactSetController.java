@@ -1,5 +1,6 @@
 package br.ufsm.csi.controller;
 
+
 import br.ufsm.csi.dao.CharacterDAO;
 import br.ufsm.csi.model.Character;
 
@@ -10,29 +11,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
-@WebServlet("/characters")
-public class CharactersController extends HttpServlet {
+@WebServlet("/ArtifactSet")
+public class artifactSetController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     String status = "";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        listCharacters(request, response);
+        listCharacter(request, response);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Characters.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/artifactSet.jsp");
         dispatcher.forward(request, response);
     }
 
-    private void listCharacters(HttpServletRequest request, HttpServletResponse response)
+    private void listCharacter(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CharacterDAO characterDAO = new CharacterDAO();
+        CharacterDAO characterDao = new CharacterDAO();
+
+        int characterId = Integer.parseInt(request.getParameter("characterId"));
 
         try {
-            ArrayList<Character> characterList = characterDAO.getCharacter();
-            request.setAttribute("characterList", characterList);
+            Character character = characterDao.getCharacterById(characterId);
+            request.setAttribute("character", character);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -44,11 +46,9 @@ public class CharactersController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        listCharacters(request, response);
+        listCharacter(request, response);
 
-
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Characters.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/artifactSet.jsp");
         dispatcher.forward(request, response);
     }
 }

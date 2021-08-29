@@ -31,7 +31,7 @@
         <p>Artifact Set</p>
 
         <section class="character-status-card">
-            <c:forEach items="${characterList}" var="character">
+            <c:forEach items="${listCharacter}" var="character">
                 <div class="item" id="item">
                     <img src="img/characters/${character.getName()}.png" height="209" width="150"
                          id="character-card-img">
