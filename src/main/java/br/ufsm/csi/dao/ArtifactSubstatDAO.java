@@ -1,6 +1,7 @@
 package br.ufsm.csi.dao;
 
 import br.ufsm.csi.model.ArtifactSubstat;
+import br.ufsm.csi.model.Substat;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -41,6 +42,34 @@ public class ArtifactSubstatDAO {
         }
 
         return artifactSubstats;
+    }
+
+    public ArrayList<Substat> getSubstatByArtifactId(int artifactId) {
+        ArrayList<Substat> substats = new ArrayList<>();
+
+        try (Connection connection = new ConectDB().getConexao()) {
+            this.sql = "select s.*, asub.substatvalue " +
+                    "from artifactsubstat asub " +
+                    "inner join substat s on s.substatid = asub.substatid " +
+                    "where asub.artifactid =  " + artifactId;
+
+            this.statement = connection.createStatement();
+            this.resultSet = this.statement.executeQuery(sql);
+
+            while (this.resultSet.next()) {
+                Substat substat = new Substat();
+                substat.setSubstatId(this.resultSet.getInt("substatid"));
+                substat.setName(this.resultSet.getString("name"));
+                substat.setValue(this.resultSet.getDouble("substatvalue"));
+
+                substats.add(substat);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return substats;
     }
 
     public ArrayList<ArtifactSubstat> getArtifactSubstatById(int id) {

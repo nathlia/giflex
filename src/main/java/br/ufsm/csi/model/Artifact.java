@@ -1,5 +1,7 @@
 package br.ufsm.csi.model;
 
+import java.util.ArrayList;
+
 public class Artifact {
 
   private int ArtifactId;
@@ -11,6 +13,7 @@ public class Artifact {
   private ArtifactType artifactType;
   private ArtifactSetType artifactSetType;
   private Substat MainStat;
+  private ArrayList<Substat> Substats;
 
   public Artifact() {
 
@@ -97,5 +100,13 @@ public class Artifact {
 
   public void setMainStat(Substat mainStat) {
     MainStat = mainStat;
+  }
+
+  public ArrayList<Substat> getSubstats() {
+    return Substats;
+  }
+
+  public void setSubstats(ArrayList<Substat> substats) {
+    Substats = substats;
   }
 }

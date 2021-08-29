@@ -5,7 +5,7 @@ public class Substat {
 
   private int SubstatId;
   private String Name;
-
+  private double Value;
 
   public Substat() {
   }
@@ -39,4 +39,11 @@ public class Substat {
     this.Name = name;
   }
 
+  public double getValue() {
+    return Value;
+  }
+
+  public void setValue(double value) {
+    Value = value;
+  }
 }

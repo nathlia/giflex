@@ -239,3 +239,36 @@ input[type=submit].add-character {
 button.add-character-button {
     width: 200px;
 }
+
+.character-status-card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    margin: auto;
+}
+
+.artifact {
+    position: relative;
+    width: 150px;
+    height: 212px;
+    margin: 18px;
+    position: relative;
+
+    background: #27263A;
+    border-radius: 12px;
+}
+
+.artifacts-tray {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+    margin: auto;
+}
+
+

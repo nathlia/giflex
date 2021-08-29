@@ -1,5 +1,6 @@
 package br.ufsm.csi.dao;
 
+import br.ufsm.csi.model.Artifact;
 import br.ufsm.csi.model.CharacterArtifact;
 
 import java.sql.*;
@@ -40,6 +41,43 @@ public class CharacterArtifactDAO {
         }
 
         return characterArtifacts;
+    }
+
+    public ArrayList<Artifact> getCharacterArtifactList(int characterid) {
+        ArrayList<Artifact> artifacts = new ArrayList<>();
+
+        try (Connection connection = new ConectDB().getConexao()) {
+            this.sql = "select a.* " +
+                    "from characterartifact ca " +
+                    "inner join artifact a on a.artifactid = ca.artifactid " +
+                    "where ca.characterid = " + characterid;
+
+            this.statement = connection.createStatement();
+            this.resultSet = this.statement.executeQuery(sql);
+
+            while (this.resultSet.next()) {
+                Artifact artifact = new Artifact();
+                artifact.setArtifactId(this.resultSet.getInt("artifactid"));
+                artifact.setArtifactTypeId(this.resultSet.getInt("artifacttypeid"));
+                artifact.setArtifactSetTypeId(this.resultSet.getInt("artifactsettypeid"));
+                artifact.setMainStatId(this.resultSet.getInt("mainstatid"));
+                artifact.setMainStatValue(this.resultSet.getDouble("mainstatvalue"));
+
+                artifacts.add(artifact);
+            }
+
+            for (Artifact a : artifacts) {
+                a.setArtifactType(new ArtifactTypeDAO().getArtifactTypeById(a.getArtifactTypeId()));
+                a.setArtifactSetType(new ArtifactSetTypeDAO().getArtifactSetTypebyId(a.getArtifactSetTypeId()));
+                a.setMainStat(new SubstatDAO().getSubstatById(a.getMainStatId()));
+                a.setSubstats(new ArtifactSubstatDAO().getSubstatByArtifactId(a.getArtifactId()));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return artifacts;
     }
 
     public CharacterArtifact getCharacterArtifactById(int id) {

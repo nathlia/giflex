@@ -31,26 +31,34 @@
         <p>Artifact Set</p>
 
         <section class="character-status-card">
-            <c:forEach items="${listCharacter}" var="character">
-                <div class="item" id="item">
-                    <img src="img/characters/${character.getName()}.png" height="209" width="150"
-                         id="character-card-img">
-                    <div id="character-card-name">
-                        <h3>${character.getName()}</h3>
-                    </div>
-                    <div id="character-card-status">
-                        <h4>Level: ${character.getLevel()}</h4>
-                        <h4>Crit Rate: ${character.getCritRate()}</h4>
-                        <h4>Crit DMG: ${character.getCritDmg()}</h4>
-                    </div>
+            <div class="item" id="item">
+                <img src="img/characters/${character.getName()}.png" height="209" width="150"
+                     id="character-card-img">
+                <div id="character-card-name">
+                    <h3>${character.getName()}</h3>
                 </div>
-            </c:forEach>
+                <div id="character-card-status">
+                    <p>Level: ${character.getLevel()}</p>
+                    <p>Crit Rate: ${character.getCritRate()}</p>
+                    <p>Crit DMG: ${character.getCritDmg()}</p>
+                </div>
+            </div>
         </section>
         <section class="artifacts-tray">
             <c:forEach items="${artifactList}" var="artifact">
-
+                <div class="artifact" >
+                    <h4>${artifact.getArtifactType().getName()}</h4>
+                    <div class="artifact-box">
+                        <p class="artifact-set-name">${artifact.getArtifactSetType().getName()}</p>
+                        <p class="artifact-mainstat">${artifact.getMainStat().getName()} : ${artifact.getMainStatValue()}</p>
+                        <c:forEach items="${artifact.getSubstats()}" var="substat">
+                            <div class="" >
+                               <p class="artifact-substat">${substat.getName()} : ${substat.getValue()}</p>
+                            </div>
+                        </c:forEach>
+                    </div>
+                </div>
             </c:forEach>
-
         </section>
         <%--add chara button--%>
         <%--show added characters--%>
