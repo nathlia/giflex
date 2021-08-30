@@ -30,35 +30,37 @@
     </div>
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
-        <div class="add-character-centre">
+        <div id="add-character-tray">
             <p>Character</p>
-        </div>
-        <form action="addCharacter" method="post">
-            <section class="add-character-form">
-                <div class="add-character-card">
-                    <img src="img/characters/${character.getName()}.png" height="209" width="150"
-                         id="character-card-img">
-                    <div id="character-card-name">
-                        <h3>${character.getName()}</h3>
+            <form action="addCharacter" method="post">
+                <section class="add-character-centre">
+                    <div class="add-character-form">
+                        <div class="add-character-card">
+                            <img src="img/characters/${character.getName()}.png" height="209" width="150"
+                                 id="character-card-img">
+                            <div id="character-card-name">
+                                <h3>${character.getName()}</h3>
+                            </div>
+                        </div>
                     </div>
+                    <div class="add-character-form">
+                        <label>Level:</label>
+                        <input type="text" name="level"/>
+                        <br/><br/>
+                        <label>Crit Rate:</label>
+                        <input type="text" name="critRate"/>
+                        <br/><br/>
+                        <label>Crit DMG:</label>
+                        <input type="text" name="critDmg"/>
+                    </div>
+                </section>
+                <input type="hidden" name="characterId" value="${character.getCharacterId()}"/>
+                <input type="hidden" name="name" value="${character.getName()}"/>
+                <div id="add-character-button">
+                    <input class="character" type="submit" value="Save">
                 </div>
-                <div class="character-form-tray">
-                    <label>Level:</label>
-                    <input type="text" name="level"/>
-                    <br/><br/>
-                    <label>Crit Rate:</label>
-                    <input type="text" name="critRate"/>
-                    <br/><br/>
-                    <label>Crit DMG:</label>
-                    <input type="text" name="critDmg"/>
-                </div>
-            </section>
-            <br/><br/>
-            <input type="hidden" name="characterId" value="${character.getCharacterId()}"/>
-            <div id="add-character-button">
-                <input class="character" type="submit" value="Save">
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
 

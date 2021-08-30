@@ -74,5 +74,4 @@ public class ArtifactSetController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/artifactSet.jsp");
         dispatcher.forward(request, response);
     }
-
 }

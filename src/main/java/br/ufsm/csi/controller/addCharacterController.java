@@ -15,6 +15,8 @@ import java.io.IOException;
 public class addCharacterController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    String status = " ";
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         listCharacter(request, response);
@@ -43,14 +45,18 @@ public class addCharacterController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        //listCharacter(request, response);
-
         int characterId = Integer.parseInt(request.getParameter("characterId"));
+        String name = request.getParameter("name");
         String level = request.getParameter("level");
         String critRate = request.getParameter("critRate");
         String critDmg = request.getParameter("critDmg");
 
-        System.out.printf("Selected Character ID: %d\n Level: %s\n Crit Rate: %s\n Crit DMG: %s\n", characterId, level, critRate, critDmg);
+       System.out.printf("Selected Character ID: %d\n Name: %s\n Level: %s\n Crit Rate: %s\n Crit DMG: %s\n", characterId, name, level, critRate, critDmg);
+
+        CharacterDAO characterDAO = new CharacterDAO();
+
+        Character character = new Character(characterId,name, level, critRate, critDmg);
+        status = characterDAO.update(character);
 
         response.sendRedirect("/app_genshin_flex/ArtifactSet?characterId=" + characterId);
     }

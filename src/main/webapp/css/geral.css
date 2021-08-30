@@ -16,6 +16,7 @@ body {
     height: auto;
     margin: auto;
     overflow: hidden;
+    position: relative;
 }
 
 /* navbar */
@@ -173,12 +174,6 @@ input[type=submit].add-character {
     width: 199px;
 }
 
-#add-character-button {
-    position: relative;
-    /*left: 1133px;*/
-    /*top: 54px;*/
-}
-
 .characters-tray {
     display: flex;
     flex-wrap: wrap;
@@ -211,20 +206,6 @@ input[type=submit].add-character {
     z-index:1;
 }
 
-.add-character-form {
-    display: flex;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    margin: auto;
-    width: 662px;
-    height: 328px;
-    left: 388px;
-    top: 366px;
-}
-
 .add-character-card {
     width: 150px;
     height: 212px;
@@ -245,6 +226,22 @@ input[type=submit].add-character {
 
 .add-character-centre {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-character-form {
+    margin: 10px;
+}
+
+#add-character-tray {
+    /*position: relative;*/
+    height: 416px;
+    width: 537px;
+    left: 399px;
 }
 
 button.add-character-button {
