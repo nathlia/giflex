@@ -70,8 +70,8 @@ h1.giflex {
 }
 
 #main {
-    width: 1376px;
-    height: 783px;
+    width: 1226px;
+    min-height: 847px;
     margin: auto;
     background: #191923;
     border-radius: 14px;
@@ -404,4 +404,53 @@ input[type=text]:active {
     border: 0;
 }
 
+.generate-showcase-button {
+    position: relative;
+    float: right;
+    margin-right: 23px;
+}
+.images-tray {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
 
+.image-of-character {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+
+h3.character-name {
+    position: relative;
+    background: #27263A;
+    border-radius: 12px;
+    color: rgba(255, 255, 255, 0.57);
+    height: 32px;
+    width: 202px;
+    text-align: center;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+ }
+
+.image {
+    position: relative;
+    margin: 10px;
+    position: relative;
+    background: #27263A;
+    border-radius: 12px;
+}
+
+image:hover {
+    border: 2px #9A83CB;
+}

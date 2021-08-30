@@ -86,6 +86,10 @@
                 </div>
             </section>
         </section>
+        <a class="generate-showcase-button"
+           href="selectImage?characterId=${character.getCharacterId()}">
+            <button>Generate Showcase</button>
+        </a>
     </div>
 </div>
 </body>
