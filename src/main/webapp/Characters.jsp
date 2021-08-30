@@ -29,8 +29,6 @@
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
         <p>My Characters</p>
-        <a href="addArtifact"><button>Add Artifact</button></a>
-
         <p class="alt-color">Select a character</p>
         <section class="characters-tray">
             <c:forEach items="${characterList}" var="character">

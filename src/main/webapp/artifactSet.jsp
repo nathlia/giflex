@@ -58,14 +58,19 @@
                 <div class="artifact">
                     <p class="artifact-set-type">${artifact.getArtifactType().getName()}</p>
                     <div class="artifact-box">
-                        <p class="artifact-set-name">${artifact.getArtifactSetType().getName()}</p>
-                        <p class="artifact-mainstat">${artifact.getMainStat().getName()}
-                            : ${artifact.getMainStatValue()}</p>
-                        <c:forEach items="${artifact.getSubstats()}" var="substat">
-                            <div class="">
-                                <p class="artifact-substat">${substat.getName()} : ${substat.getValue()}</p>
-                            </div>
-                        </c:forEach>
+                        <div class="artifact-box-add">
+                            <a href="addArtifact?characterId=${character.getCharacterId()}">
+                                <span class="hyperspan"></span>
+                            </a>
+                            <p class="artifact-set-name">${artifact.getArtifactSetType().getName()}</p>
+                            <p class="artifact-mainstat">${artifact.getMainStat().getName()}
+                                : ${artifact.getMainStatValue()}</p>
+                            <c:forEach items="${artifact.getSubstats()}" var="substat">
+                                <div class="">
+                                    <p class="artifact-substat">${substat.getName()} : ${substat.getValue()}</p>
+                                </div>
+                            </c:forEach>
+                        </div>
                     </div>
                 </div>
             </c:forEach>

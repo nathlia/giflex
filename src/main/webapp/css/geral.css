@@ -179,12 +179,22 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
-#add-artifact-form {
+.add-artifact-tray {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: start;
+    flex-direction: row;
+    align-items: flex-start;
     margin: auto;
-    width: 428px;
-    height: 510px;
-    left: 644px;
-    top: 277px;
+}
+
+.add-artifact-form {
+
+}
+
+.artifact-box-add {
+    height: 225px;
 }
 
 #save-button {
@@ -260,7 +270,7 @@ input[type=submit].add-character {
 #add-character-tray {
     /*position: relative;*/
     height: 416px;
-    width: 537px;
+    width: 571px;
     left: 399px;
 }
 
@@ -360,6 +370,33 @@ p.artifact-set-type {
     position: relative;
     top: 15px;
 }
+input {
+    font-family:inherit;
+    font-size: inherit;
+}
 
+select {
+    background: #27263A;
+    padding: 10px;
+    font-family:inherit;
+    font-size: inherit;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 27px;
+    color: rgba(255, 255, 255, 0.57);
+    border:0;
+}
+
+input[type=text] {
+    background-color: #27263A;
+    color: rgba(255, 255, 255, 0.57);
+    border: 0;
+}
+
+input[type=text]:active {
+    background-color: #27263A;
+    color: rgba(255, 255, 255, 0.57);
+    border: 0;
+}
 
 
