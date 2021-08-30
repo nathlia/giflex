@@ -28,53 +28,43 @@
     </div>
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
-        <p>Artifact Set</p>
-        <section class="showcase-tray">
+        <div class="showcase-image">
             <div class="showcase-image">
-                <div class="showcase-image">
-                    <img src="img/${character.getName()}/${image}.png"
-                         height="700"
-                         id="image-1">
-                </div>
+                <img src="img/${character.getName()}/${image}.png"
+                     height="675"
+                     id="image-1">
             </div>
-<%--            <section class="artifacts">--%>
-<%--                <c:forEach items="${artifactList}" var="artifact">--%>
-<%--                    <div class="artifact">--%>
-<%--                        <p class="artifact-set-type">${artifact.getArtifactType().getName()}</p>--%>
-<%--                        <div class="artifact-box">--%>
-<%--                            <div class="artifact-box-add">--%>
-<%--                                <a href="addArtifact?characterId=${character.getCharacterId()}">--%>
-<%--                                    <span class="hyperspan"></span>--%>
-<%--                                </a>--%>
-<%--                                <p class="artifact-set-name">${artifact.getArtifactSetType().getName()}</p>--%>
-<%--                                <p class="artifact-mainstat">${artifact.getMainStat().getName()}--%>
-<%--                                    : ${artifact.getMainStatValue()}</p>--%>
-<%--                                <c:forEach items="${artifact.getSubstats()}" var="substat">--%>
-<%--                                    <div class="">--%>
-<%--                                        <p class="artifact-substat">${substat.getName()} : ${substat.getValue()}</p>--%>
-<%--                                    </div>--%>
-<%--                                </c:forEach>--%>
-<%--                            </div>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </c:forEach>--%>
-<%--                <div class="artifact">--%>
-<%--                    <div class="artifact-box-add">--%>
-<%--                        <a href="addArtifact?characterId=${character.getCharacterId()}">--%>
-<%--                            <span class="hyperspan"></span>--%>
-<%--                        </a>--%>
-<%--                        <div class="add-artifact-plus-h"></div>--%>
-<%--                        <div class="add-artifact-plus-v"></div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </section>--%>
-<%--        </section>--%>
-<%--        <a class="generate-showcase-button"--%>
-<%--           href="selectImage?characterId=${character.getCharacterId()}">--%>
-<%--            <button>Generate Showcase</button>--%>
-<%--        </a>--%>
+        </div>
+        <section class="showcase-tray">
+            <div class="showcase-character-card-status">
+                <p class="showcase-artifact-set-letter">Crit Rate: ${character.getCritRate()}</p>
+                <p class="showcase-artifact-set-letter">Crit DMG: ${character.getCritDmg()}</p>
+            </div>
+            <section class="showcase-artifacts">
+                <c:forEach items="${artifactList}" var="artifact">
+                    <div class="showcase-artifact">
+                        <p class="showcase-artifact-set-type">${artifact.getArtifactType().getName()}</p>
+                        <div class="showcase-artifact-box">
+                            <div class="showcase-artifact-box-add">
+                                <p class="showcase-artifact-set-name">${artifact.getArtifactSetType().getName()}</p>
+                                <p class="showcase-artifact-mainstat">${artifact.getMainStat().getName()}
+                                    : ${artifact.getMainStatValue()}</p>
+                                <c:forEach items="${artifact.getSubstats()}" var="substat">
+                                    <div class="">
+                                        <p class="showcase-artifact-substat">${substat.getName()} : ${substat.getValue()}</p>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+            </section>
+        </section>
+        <a class="showcase-back-button"
+           href="selectImage?characterId=${character.getCharacterId()}">
+            <button>Back</button>
+        </a>
     </div>
 </div>
-
 </body>
 </html>
