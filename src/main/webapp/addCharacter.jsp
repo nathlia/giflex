@@ -60,17 +60,12 @@
                     <input class="character" type="submit" value="Save">
                 </div>
             </form>
+            <a class="add-character-button"
+               href="ArtifactSet?characterId=${character.getCharacterId()}">
+                <button>Back</button>
+            </a>
         </div>
     </div>
 </div>
-
-
-<%--    -> delete button--%>
-<%--    -> edit button--%>
-<%--    -> add button--%>
-
-<%--    -> show added with success message--%>
-<%--    -> ok button--%>
-<%--    -> go to index.jsp--%>
 </body>
 </html>

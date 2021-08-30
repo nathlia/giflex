@@ -37,29 +37,33 @@
                     <div id="character-card-name">
                         <h3>${character.getName()}</h3>
                     </div>
-                    <div id="character-card-status">
-                        <p>Level: ${character.getLevel()}</p>
-                        <p>Crit Rate: ${character.getCritRate()}</p>
-                        <p>Crit DMG: ${character.getCritDmg()}</p>
+                    <div class="character-card-status">
+                        <p class="artifact-set-letter">Level: ${character.getLevel()}</p>
+                        <p class="artifact-set-letter">Crit Rate: ${character.getCritRate()}</p>
+                        <p class="artifact-set-letter">Crit DMG: ${character.getCritDmg()}</p>
                         <div id="add-character-button">
                             <a class="add-character-button"
                                href="addCharacter?characterId=${character.getCharacterId()}">
                                 <button>Edit</button>
                             </a>
                         </div>
+                        <a class="set-back-button"
+                           href="characters">
+                            <button>Back</button>
+                        </a>
                     </div>
                 </div>
             </div>
             <c:forEach items="${artifactList}" var="artifact">
                 <div class="artifact">
-                    <h4>${artifact.getArtifactType().getName()}</h4>
+                    <p class="artifact-set-type">${artifact.getArtifactType().getName()}</p>
                     <div class="artifact-box">
-                        <h4 class="artifact-set-name">${artifact.getArtifactSetType().getName()}</h4>
-                        <h4 class="artifact-mainstat">${artifact.getMainStat().getName()}
-                            : ${artifact.getMainStatValue()}</h4>
+                        <p class="artifact-set-name">${artifact.getArtifactSetType().getName()}</p>
+                        <p class="artifact-mainstat">${artifact.getMainStat().getName()}
+                            : ${artifact.getMainStatValue()}</p>
                         <c:forEach items="${artifact.getSubstats()}" var="substat">
                             <div class="">
-                                <h4 class="artifact-substat">${substat.getName()} : ${substat.getValue()}</h4>
+                                <p class="artifact-substat">${substat.getName()} : ${substat.getValue()}</p>
                             </div>
                         </c:forEach>
                     </div>
