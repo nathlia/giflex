@@ -19,6 +19,16 @@ body {
     position: relative;
 }
 
+.artifacts {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: start;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: auto;
+}
+
 /* navbar */
 #navbar {
     position: relative;
@@ -292,9 +302,8 @@ button.add-character-button {
     position: relative;
     width: 204px;
     height: 224px;
-    margin: 18px;
+    margin: 27px;
     position: relative;
-
     background: #27263A;
     border-radius: 12px;
 }
@@ -358,12 +367,8 @@ p.artifact-set-type {
 
 .artifacts-tray {
     display: flex;
-    flex-wrap: wrap;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: start;
-    flex-direction: row;
-    margin: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .set-back-button {

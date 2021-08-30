@@ -104,19 +104,19 @@ public class addArtifactController extends HttpServlet {
 
         System.out.printf("Character ID: %d\n Type: %d \nSet: %d \nMainStatId: %d \nvalue: %.2f\n", characterId, artifactTypeId, artifactSetId, mainSetId, mainStatValue);
 
-//        ArtifactDAO artifactDAO = new ArtifactDAO();
-//
-//        Artifact artifact = new Artifact(artifactTypeId, artifactSetId, mainSetId, mainStatValue);
-//        status = artifactDAO.insert(artifact);
-//
-//        int artifactId = artifact.getArtifactId();
+        ArtifactDAO artifactDAO = new ArtifactDAO();
 
-        //System.out.printf(" Artifact ID: %d\n", artifactId);
+        Artifact artifact = new Artifact(artifactTypeId, artifactSetId, mainSetId, mainStatValue);
+        status = artifactDAO.insert(artifact);
 
-//        CharacterArtifactDAO characterArtifactDAO = new CharacterArtifactDAO();
-//
-//        CharacterArtifact characterArtifact = new CharacterArtifact(characterId, artifactId);
-//        status = characterArtifactDAO.insert(characterArtifact);
+        int artifactId = artifact.getArtifactId();
+
+        System.out.printf(" Artifact ID: %d\n", artifactId);
+
+        CharacterArtifactDAO characterArtifactDAO = new CharacterArtifactDAO();
+
+        CharacterArtifact characterArtifact = new CharacterArtifact(characterId, artifactId);
+        status = characterArtifactDAO.insert(characterArtifact);
 
         response.sendRedirect("/app_genshin_flex/ArtifactSet?characterId=" + characterId);
     }
