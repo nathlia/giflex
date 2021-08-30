@@ -29,42 +29,49 @@
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
         <p>Artifact Set</p>
-
-        <section class="character-status-card">
-            <div class="item" id="item">
-                <img src="img/characters/${character.getName()}.png" height="209" width="150"
-                     id="character-card-img">
-                <div id="character-card-name">
-                    <h3>${character.getName()}</h3>
-                </div>
-                <div id="character-card-status">
-                    <p>Level: ${character.getLevel()}</p>
-                    <p>Crit Rate: ${character.getCritRate()}</p>
-                    <p>Crit DMG: ${character.getCritDmg()}</p>
+        <section class="artifacts-tray">
+            <div class="character-status-card">
+                <div class="item" id="item">
+                    <img src="img/characters/${character.getName()}.png" height="209" width="150"
+                         id="character-card-img">
+                    <div id="character-card-name">
+                        <h3>${character.getName()}</h3>
+                    </div>
+                    <div id="character-card-status">
+                        <p>Level: ${character.getLevel()}</p>
+                        <p>Crit Rate: ${character.getCritRate()}</p>
+                        <p>Crit DMG: ${character.getCritDmg()}</p>
+                        <div id="add-character-button">
+                            <a class="add-character-button"
+                               href="addCharacter?characterId=${character.getCharacterId()}">
+                                <button>Edit</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-        <section class="artifacts-tray">
             <c:forEach items="${artifactList}" var="artifact">
-                <div class="artifact" >
+                <div class="artifact">
                     <h4>${artifact.getArtifactType().getName()}</h4>
                     <div class="artifact-box">
-                        <p class="artifact-set-name">${artifact.getArtifactSetType().getName()}</p>
-                        <p class="artifact-mainstat">${artifact.getMainStat().getName()} : ${artifact.getMainStatValue()}</p>
+                        <h4 class="artifact-set-name">${artifact.getArtifactSetType().getName()}</h4>
+                        <h4 class="artifact-mainstat">${artifact.getMainStat().getName()}
+                            : ${artifact.getMainStatValue()}</h4>
                         <c:forEach items="${artifact.getSubstats()}" var="substat">
-                            <div class="" >
-                               <p class="artifact-substat">${substat.getName()} : ${substat.getValue()}</p>
+                            <div class="">
+                                <h4 class="artifact-substat">${substat.getName()} : ${substat.getValue()}</h4>
                             </div>
                         </c:forEach>
                     </div>
                 </div>
             </c:forEach>
+            <div class="artifact">
+                <div class="artifact-box">
+                    add
+                </div>
+            </div>
         </section>
-        <%--add chara button--%>
-        <%--show added characters--%>
-        <%--clicking a character redirect to equipped artifacts--%>
     </div>
 </div>
-
 </body>
 </html>

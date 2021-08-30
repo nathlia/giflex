@@ -225,7 +225,18 @@ input[type=submit].add-character {
     top: 366px;
 }
 
+.add-character-card {
+    width: 150px;
+    height: 212px;
+    margin: 18px;
+    position: relative;
+
+    background: #27263A;
+    border-radius: 12px;
+}
+
 #character-form-tray {
+    position: relative;
     width: 662px;
     height: 328px;
     left: 388px;
@@ -247,7 +258,6 @@ button.add-character-button {
     align-items: center;
     justify-content: start;
     flex-direction: row;
-    margin: auto;
 }
 
 .artifact {

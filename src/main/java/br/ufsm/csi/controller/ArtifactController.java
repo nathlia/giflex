@@ -117,7 +117,6 @@ public class ArtifactController extends HttpServlet {
 //        CharacterArtifact characterArtifact = new CharacterArtifact(characterId, artifactId);
 //        status = characterArtifactDAO.insert(characterArtifact);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Characters.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("/app_genshin_flex/characters");
     }
 }

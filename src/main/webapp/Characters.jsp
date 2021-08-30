@@ -31,14 +31,9 @@
         <p>My Characters</p>
         <a href="addArtifact"><button>Add Artifact</button></a>
 
-        <div id="add-character-button">
-            <a class="add-character-button" href="addCharacter"><button>Add Character</button></a>
-        </div>
-
         <p class="alt-color">Select a character</p>
         <section class="characters-tray">
             <c:forEach items="${characterList}" var="character">
-                <%--<div class="character-card">--%>
                 <div class="item" id="item">
                     <a href="ArtifactSet?characterId=${character.getCharacterId()}">
                         <span class="hyperspan"></span>
@@ -49,12 +44,8 @@
                         <h3>${character.getName()}</h3>
                     </div>
                 </div>
-                <%--</div>--%>
             </c:forEach>
         </section>
-        <%--add chara button--%>
-        <%--show added characters--%>
-        <%--clicking a character redirect to equipped artifacts--%>
     </div>
 </div>
 </body>

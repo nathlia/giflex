@@ -46,8 +46,6 @@ public class CharactersController extends HttpServlet {
 
         listCharacters(request, response);
 
-
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("/Characters.jsp");
         dispatcher.forward(request, response);
     }

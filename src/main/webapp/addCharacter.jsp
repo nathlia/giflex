@@ -31,40 +31,15 @@
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
         <div class="add-character-centre">
-            <p>Add Character</p>
-            <%--            <form action="addCharacter" method="post">--%>
-            <%--                <label>Select Character:</label>--%>
-            <%--                <select name="selectCharacter">--%>
-            <%--                    <c:forEach items="${characterList}" var="character">--%>
-            <%--                        <option value="${character.getCharacterId()}">--%>
-            <%--                                ${character.getName()}--%>
-            <%--                        </option>--%>
-            <%--                    </c:forEach>--%>
-            <%--                </select>--%>
-            <%--                <div id="select-character">--%>
-            <%--                    <input class="select-character" nome="select-character" type="submit" value="Select">--%>
-            <%--                </div>--%>
-            <%--            </form>--%>
+            <p>Character</p>
         </div>
-
         <form action="addCharacter" method="post">
-            <label>Select Character:</label>
-            <select name="selectCharacter">
-                <c:forEach items="${characterList}" var="characters">
-                    <option value="${characters.getCharacterId()}">
-                            ${characters.getName()}
-                    </option>
-                </c:forEach>
-            </select>
-            <br/><br/>
             <section class="add-character-form">
-                <div id="character-card">
-                    <div class="item">
-                        <img src="img/characters/${character.getName()}.png" height="209" width="150"
-                             id="character-card-img">
-                        <div id="character-card-name">
-                            <h3>${character.getName()}</h3>
-                        </div>
+                <div class="add-character-card">
+                    <img src="img/characters/${character.getName()}.png" height="209" width="150"
+                         id="character-card-img">
+                    <div id="character-card-name">
+                        <h3>${character.getName()}</h3>
                     </div>
                 </div>
                 <div class="character-form-tray">
@@ -79,8 +54,9 @@
                 </div>
             </section>
             <br/><br/>
+            <input type="hidden" name="characterId" value="${character.getCharacterId()}"/>
             <div id="add-character-button">
-                <input class="select-character" type="submit" value="Save">
+                <input class="character" type="submit" value="Save">
             </div>
         </form>
     </div>

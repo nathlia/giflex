@@ -5,7 +5,6 @@ import br.ufsm.csi.dao.CharacterArtifactDAO;
 import br.ufsm.csi.dao.CharacterDAO;
 import br.ufsm.csi.model.Artifact;
 import br.ufsm.csi.model.Character;
-import br.ufsm.csi.model.CharacterArtifact;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet("/ArtifactSet")
-public class artifactSetController extends HttpServlet {
+public class ArtifactSetController extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     String status = "";
@@ -34,48 +33,17 @@ public class artifactSetController extends HttpServlet {
 
     private void listArtifacts(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        CharacterArtifactDAO characterArtifactDAO = new CharacterArtifactDAO();
         int characterId = Integer.parseInt(request.getParameter("characterId"));
 
-        //CharacterArtifact characterArtifactFound;
-
-        CharacterArtifactDAO characterArtifactDAO = new CharacterArtifactDAO();
-
-        ArrayList<Artifact> characterArtifact = characterArtifactDAO.getCharacterArtifactList(characterId);
-
-        //int artifactFoundTypeId = characterArtifactFound.getArtifact().getArtifactSetTypeId();
-
         try {
-            //if (artifactFoundTypeId == 1) {
-                //listArtifactSetType(request, response, characterArtifactFound);
-                //listMainStat();
-                //listMainStatValue();
-                //listSubstat();
-                //listArtifactSubstatValue();
-            //}
+            ArrayList<Artifact> characterArtifact = characterArtifactDAO.getCharacterArtifactList(characterId);
             request.setAttribute("artifactList", characterArtifact);
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException(e);
         }
     }
-
-//    private void listArtifactSetType(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        ArtifactSetTypeDAO artifactSetTypeDAO = new ArtifactSetTypeDAO();
-//
-//        int artifactSetTypeId;
-//        //artifactSetTypeId = characterArtifact.getArtifact().getArtifactSetType().getArtifactSetTypeId();
-//
-//        try {
-//            ArtifactSetType artifactSetType = artifactSetTypeDAO.getArtifactSetTypebyId(artifactSetTypeId);
-//            request.setAttribute("artifactSetType", artifactSetType);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            throw new ServletException(e);
-//        }
-//    }
 
     private void listCharacter(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -107,14 +75,4 @@ public class artifactSetController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    public CharacterArtifact findArtifact(int id, ArrayList<CharacterArtifact> character) {
-        //ArrayList<ArtifactsEquipped> artifactsEquipped = new ArrayList<>();
-
-        for (CharacterArtifact characterArtifact : character) {
-            if (characterArtifact.getCharacter().getCharacterId() == id) {
-                return characterArtifact;
-            }
-        }
-        return null;
-    }
 }
