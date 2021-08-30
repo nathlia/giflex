@@ -14,16 +14,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 @WebServlet("/addArtifact")
-public class ArtifactController extends HttpServlet {
+public class addArtifactController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final int characterId = 1; //xiao
 
     String status = "";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
         listArtifactType(request, response);
-        listCharacters(request, response);
+        listCharacter(request, response);
         listArtifactSetType(request, response);
         listMainStat(request, response);
 
@@ -31,9 +30,11 @@ public class ArtifactController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void listCharacters(HttpServletRequest request, HttpServletResponse response)
+    private void listCharacter(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         CharacterDAO characterDao = new CharacterDAO();
+
+        int characterId = Integer.parseInt(request.getParameter("characterId"));
 
         try {
             Character character = characterDao.getCharacterById(characterId);
@@ -91,7 +92,7 @@ public class ArtifactController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        //int artifactTypeId = request.getParameter("nome");
+        int characterId = Integer.parseInt(request.getParameter("characterId"));
         int artifactTypeId = Integer.parseInt(request.getParameter("artifactType"));
         int artifactSetId = Integer.parseInt(request.getParameter("artifactSet"));
         int mainSetId = Integer.parseInt(request.getParameter("mainStat"));
@@ -101,7 +102,7 @@ public class ArtifactController extends HttpServlet {
                 ? 0
                 : Double.parseDouble(mainStatValueString);
 
-        System.out.printf("Type: %d \nSet: %d \nMainStatId: %d \nvalue: %.2f\n", artifactTypeId, artifactSetId, mainSetId, mainStatValue);
+        System.out.printf("Character ID: %d\n Type: %d \nSet: %d \nMainStatId: %d \nvalue: %.2f\n", characterId, artifactTypeId, artifactSetId, mainSetId, mainStatValue);
 
 //        ArtifactDAO artifactDAO = new ArtifactDAO();
 //
@@ -117,6 +118,6 @@ public class ArtifactController extends HttpServlet {
 //        CharacterArtifact characterArtifact = new CharacterArtifact(characterId, artifactId);
 //        status = characterArtifactDAO.insert(characterArtifact);
 
-        response.sendRedirect("/app_genshin_flex/characters");
+        response.sendRedirect("/app_genshin_flex/ArtifactSet?characterId=" + characterId);
     }
 }

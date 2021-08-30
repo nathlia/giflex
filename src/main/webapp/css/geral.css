@@ -315,6 +315,29 @@ button.add-character-button {
     color: #FFFFFF;
 }
 
+.artifact-substat {
+    margin-bottom: -10px;
+}
+
+.add-artifact-plus-h {
+    position: relative;
+    width: 100px;
+    height: 15px;
+    left: 52px;
+    top: 109px;
+    background: #424252;
+}
+
+.add-artifact-plus-v {
+    position: relative;
+    width: 100px;
+    height: 15px;
+    left: 52px;
+    top: 92px;
+    background: #424252;
+    transform: rotate(90deg);
+}
+
 p.artifact-set-type {
     font-size: 16px;
     line-height: 131.7%;

@@ -70,8 +70,12 @@
                 </div>
             </c:forEach>
             <div class="artifact">
-                <div class="artifact-box">
-                    add
+                <div class="artifact-box-add">
+                    <a href="addArtifact?characterId=${character.getCharacterId()}">
+                        <span class="hyperspan"></span>
+                    </a>
+                    <div class="add-artifact-plus-h"></div>
+                    <div class="add-artifact-plus-v"></div>
                 </div>
             </div>
         </section>

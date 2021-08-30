@@ -31,12 +31,11 @@
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
         <p>Add Artifact</p>
-        <div id="character-card">
-            <div class="item">
-                <img src="img/characters/1.png" height="209" width="150" id="character-card-img">
-                <div id="character-card-name">
-                    <h3>${character.name}</h3>
-                </div>
+        <div class="add-character-card">
+            <img src="img/characters/${character.getName()}.png" height="209" width="150"
+                 id="character-card-img">
+            <div id="character-card-name">
+                <h3>${character.getName()}</h3>
             </div>
         </div>
         <div id="add-artifact-form">
@@ -72,6 +71,7 @@
                     <label>Main Stat Value:</label>
                     <input type="text" name="mainStatValue"/>
                     <br/><br/>
+                    <input type="hidden" name="characterId" value="${character.getCharacterId()}"/>
                     <div id="save-button">
                         <input type="submit" value="Save"/>
                     </div>
