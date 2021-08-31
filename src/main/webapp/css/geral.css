@@ -71,7 +71,7 @@ h1.giflex {
 
 #main {
     width: 1226px;
-    min-height: 847px;
+    min-height: 775px;
     margin: auto;
     background: #191923;
     border-radius: 14px;
@@ -130,7 +130,7 @@ h3.character-card-name {
 }
 
 input[type=submit] {
-    width: 160px;
+    width: 118px;
     height: 43px;
     left: 1044px;
     top: 871px;
@@ -193,10 +193,8 @@ input[type=submit]:hover {
     display: flex;
     flex-wrap: wrap;
     flex-flow: row wrap;
-    justify-content: start;
+    justify-content: center;
     flex-direction: row;
-    align-items: flex-start;
-    margin: auto;
 }
 
 .add-artifact-form {
@@ -206,10 +204,23 @@ input[type=submit]:hover {
 .artifact-box-add {
     height: 225px;
 }
+.add-artifact-text {
+    position: relative;
+    left: 322px;
+}
 
 #save-button {
     position: relative;
+    float: right;
+    left: -6px;
 }
+
+.add-artifact-back-button {
+    position: relative;
+    float: left;
+    left: -217px;
+    top: -21px;
+ }
 
 input[type=submit].add-character {
     width: 199px;
@@ -251,9 +262,10 @@ input[type=submit].add-character {
     height: 212px;
     margin: 18px;
     position: relative;
-
     background: #27263A;
     border-radius: 12px;
+    margin-right: 78px;
+    top: -21px;
 }
 
 #character-form-tray {
@@ -278,10 +290,23 @@ input[type=submit].add-character {
 }
 
 #add-character-tray {
-    /*position: relative;*/
-    height: 416px;
+    position: relative;
+    height: 414px;
     width: 571px;
-    left: 399px;
+    left: 331px;
+}
+
+#add-character-save-button {
+    position: relative;
+    float: right;
+    left: -106px;
+ }
+
+.add-character-back-button {
+    position: relative;
+    float: left;
+    top: -20px;
+    left: 20px;
 }
 
 button.add-character-button {
@@ -314,8 +339,8 @@ button.add-character-button {
 }
 
 .artifact-set-name {
-    font-size: 11px;
-    line-height: 15px;
+    font-size: 17px;
+    line-height: 42px;
     letter-spacing: -0.02em;
     position: relative;
 }
@@ -447,10 +472,6 @@ h3.character-name {
     border-radius: 12px;
 }
 
-image:hover {
-    border: 2px #9A83CB;
-}
-
 .showcase-tray {
     display: flex;
     align-items: center;
@@ -575,7 +596,7 @@ p.showcase-artifact-mainstat {
 
 p.showcase-artifact-substat {
     position: relative;
-    font-size: 17px;
+    font-size: 15px;
     line-height: 25px;
     color: rgba(255, 255, 255, 0.74);
     margin: 5px;

@@ -72,6 +72,10 @@
                 </div>
             </section>
         </section>
+        <a class="showcase-back-button"
+           href="ArtifactSet?characterId=${character.getCharacterId()}">
+            <button>Back</button>
+        </a>
     </div>
 </div>
 </body>

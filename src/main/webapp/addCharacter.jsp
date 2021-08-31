@@ -56,11 +56,11 @@
                 </section>
                 <input type="hidden" name="characterId" value="${character.getCharacterId()}"/>
                 <input type="hidden" name="name" value="${character.getName()}"/>
-                <div id="add-character-button">
+                <div id="add-character-save-button">
                     <input class="character" type="submit" value="Save">
                 </div>
             </form>
-            <a class="add-character-button"
+            <a class="add-character-back-button"
                href="ArtifactSet?characterId=${character.getCharacterId()}">
                 <button>Back</button>
             </a>

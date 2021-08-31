@@ -30,7 +30,7 @@
     </div>
     <div id="main">
         <h2>Genshin Impact Character Showcase</h2>
-        <p>Add Artifact</p>
+        <p class="add-artifact-text">Add Artifact</p>
         <div class="add-artifact-tray">
             <div class="add-character-card">
                 <img src="img/characters/${character.getName()}.png" height="209" width="150"
@@ -77,7 +77,7 @@
                             <input type="submit" value="Save"/>
                         </div>
                     </form>
-                    <a class="add-character-button"
+                    <a class="add-artifact-back-button"
                        href="ArtifactSet?characterId=${character.getCharacterId()}">
                         <button>Back</button>
                     </a>
