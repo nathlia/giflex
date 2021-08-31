@@ -23,7 +23,7 @@
 <body>
 <div id="container">
     <div id="navbar">
-        <a href="index.jsp" class="giflex">Giflex</a>
+        <a href="characters" class="giflex">Giflex</a>
         <div id="navbar_line"></div>
     </div>
     <div id="main">
@@ -49,12 +49,12 @@
                                 <p class="showcase-artifact-set-type">${artifact.getArtifactType().getName()}</p>
                                 <p class="showcase-artifact-mainstat">${artifact.getMainStat().getName()}
                                     : ${artifact.getMainStatValue()}</p>
-                                <c:forEach items="${artifact.getSubstats()}" var="substat">
-                                    <div class="">
-                                        <p class="showcase-artifact-substat">${substat.getName()}
-                                            : ${substat.getValue()}</p>
-                                    </div>
-                                </c:forEach>
+<%--                                <c:forEach items="${artifact.getSubstats()}" var="substat">--%>
+<%--                                    <div class="">--%>
+<%--                                        <p class="showcase-artifact-substat">${substat.getName()}--%>
+<%--                                            : ${substat.getValue()}</p>--%>
+<%--                                    </div>--%>
+<%--                                </c:forEach>--%>
                             </div>
                         </div>
                     </c:forEach>

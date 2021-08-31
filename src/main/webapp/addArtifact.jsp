@@ -25,7 +25,7 @@
 
 <div id="container">
     <div id="navbar">
-        <a href="index.jsp" class="giflex">Giflex</a>
+        <a href="characters" class="giflex">Giflex</a>
         <div id="navbar_line"></div>
     </div>
     <div id="main">
