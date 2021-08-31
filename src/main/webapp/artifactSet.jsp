@@ -55,6 +55,8 @@
                 </div>
             </div>
             <section class="artifacts">
+                <c:set var="count" value="0" scope="page" />
+
                 <c:forEach items="${artifactList}" var="artifact">
                     <div class="artifact">
                         <p class="artifact-set-type">${artifact.getArtifactType().getName()}</p>
@@ -74,16 +76,23 @@
                             </div>
                         </div>
                     </div>
+                    <c:set var="count" value="${count + 1}" scope="page"/>
                 </c:forEach>
-                <div class="artifact">
-                    <div class="artifact-box-add">
-                        <a href="addArtifact?characterId=${character.getCharacterId()}">
-                            <span class="hyperspan"></span>
-                        </a>
-                        <div class="add-artifact-plus-h"></div>
-                        <div class="add-artifact-plus-v"></div>
-                    </div>
-                </div>
+
+                <c:choose>
+                    <c:when test="${count < '5'}">
+                        <div class="artifact">
+                            <div class="artifact-box-add">
+                                <a href="addArtifact?characterId=${character.getCharacterId()}">
+                                    <span class="hyperspan"></span>
+                                </a>
+                                <div class="add-artifact-plus-h"></div>
+                                <div class="add-artifact-plus-v"></div>
+                            </div>
+                        </div>
+                    </c:when>
+                </c:choose>
+
             </section>
         </section>
         <a class="generate-showcase-button"
