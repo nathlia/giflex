@@ -77,10 +77,6 @@ public class showcaseController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-//        int characterId = Integer.parseInt(request.getParameter("characterId"));
-//        int imageId = Integer.parseInt(request.getParameter("imageId"));
-//        System.out.printf("Character ID: %d", characterId);
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("/showcase.jsp");
         dispatcher.forward(request, response);
     }

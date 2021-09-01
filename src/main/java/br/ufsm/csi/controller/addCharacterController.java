@@ -51,7 +51,7 @@ public class addCharacterController extends HttpServlet {
         String critRate = request.getParameter("critRate");
         String critDmg = request.getParameter("critDmg");
 
-       System.out.printf("Selected Character ID: %d\n Name: %s\n Level: %s\n Crit Rate: %s\n Crit DMG: %s\n", characterId, name, level, critRate, critDmg);
+        System.out.printf("Selected Character ID: %d\n Name: %s\n Level: %s\n Crit Rate: %s\n Crit DMG: %s\n", characterId, name, level, critRate, critDmg);
 
         CharacterDAO characterDAO = new CharacterDAO();
 
